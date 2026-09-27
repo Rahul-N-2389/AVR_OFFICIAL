@@ -1,0 +1,817 @@
+/* ==========================================================================
+   AVR DABBA - Services Page Stylesheet (Services.css)
+   Clean Editorial Prose, Continuous Swipe-Left Marquee, & Reference Image Timeline
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
+
+:root {
+    --primary-navy: #0f172a;
+    --gold-accent: #d97706;
+    --gold-star: #f59e0b;
+    --spice-red: #be123c;
+    --bg-white: #ffffff;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-subtle: rgba(15, 23, 42, 0.1);
+    --font-heading: Arial, Helvetica, sans-serif;
+    --font-body: Arial, Helvetica, sans-serif;
+}
+
+/* Global scrollbar disable & hide rules */
+html, body, div, section, main, article, aside, nav {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+h2, h3, h4, h5, h6,
+.section-subheading,
+.section-title,
+.sub-page-heading,
+.subheading,
+.sub-title,
+.location-title,
+.weather-card-title,
+.timeline-card-title,
+.timeline-main-heading {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--text-dark);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+.services-page-section {
+    padding: 40px 0 80px 0;
+}
+
+.main-page-heading {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 8px;
+}
+
+.sub-page-heading {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 16px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   1. Clean Prose Blocks (No Cards, No Shadows)
+   -------------------------------------------------------------------------- */
+.services-clean-block {
+    margin-bottom: 50px;
+}
+
+.service-prose-para {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #334155;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Target Location Category Cards (Sharp Edges, Continuous Swipe-Left Marquee)
+   -------------------------------------------------------------------------- */
+.locations-category-section {
+    margin-bottom: 60px;
+}
+
+.marquee-track-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeSwipeLeft 20s linear infinite;
+}
+
+.marquee-group {
+    display: flex;
+    gap: 24px;
+    padding-right: 24px;
+    flex-shrink: 0;
+    align-items: stretch;
+}
+
+@keyframes marqueeSwipeLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.location-card-sharp {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    width: 270px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.location-img-wrap-sharp {
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+    border-radius: 0 !important;
+}
+
+.location-img-wrap-sharp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.location-card-body-sharp {
+    padding: 16px;
+    flex: 1;
+}
+
+.location-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 6px;
+}
+
+.location-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Daily Operations Routine Timeline (Reference Image Layout)
+   -------------------------------------------------------------------------- */
+.timeline-section {
+    margin-bottom: 70px;
+    background: #ffffff;
+    padding: 50px 30px;
+    border-radius: 0px;
+    border: 1px solid #f1e5d5;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.timeline-top-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #fff5f5;
+    color: var(--spice-red);
+    border: 1.5px solid #f87171;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 4px 16px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.timeline-main-heading {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.timeline-subheading {
+    font-size: 0.98rem;
+    color: #64748b;
+    font-style: italic;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.daily-routine-timeline {
+    position: relative;
+    max-width: 920px;
+    margin: 0 auto;
+    padding-left: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Single continuous vertical line behind all timeline dots */
+.timeline-line {
+    position: absolute;
+    left: 36px;
+    top: 24px;
+    bottom: 24px;
+    width: 3px;
+    background: #0f172a;
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Professional timeline navigation — number perfectly centered on the line */
+.timeline-node-wrap {
+    position: absolute;
+    left: -90px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 76px;
+    height: 34px;
+    z-index: 5;
+}
+
+/* Number sits exactly at the center of the vertical line */
+.timeline-step-label {
+    position: absolute;
+    left: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0f172a;
+    color: #ffffff;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    line-height: 1;
+    font-weight: 800;
+
+    z-index: 7;
+    pointer-events: none;
+    box-shadow: 0 0 0 2px var(--gold-accent);
+    box-sizing: border-box;
+}
+
+/* The timeline dot is kept underneath the numbered circle.
+   Its center is exactly aligned with the 4px vertical line. */
+.timeline-dot {
+    position: absolute;
+    left: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #0f172a;
+    border: 0;
+    box-shadow: none;
+    flex-shrink: 0;
+    z-index: 6;
+}
+
+/* Right-side card — no STEP label and no timing */
+.timeline-card {
+    background: #ffffff;
+    border-radius: 0px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.timeline-card:hover {
+    border-color: #d97706;
+}
+
+.timeline-card-img {
+    width: 220px;
+    height: 145px;
+    border-radius: 0px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.timeline-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.timeline-card-body {
+    flex: 1;
+}
+
+.timeline-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+    line-height: 1.35;
+}
+
+.timeline-card-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .daily-routine-timeline {
+        padding-left: 70px;
+    }
+
+    .timeline-line {
+        left: 26px;
+        width: 4px;
+    }
+
+    .timeline-node-wrap {
+        left: -70px;
+        width: 60px;
+    }
+
+    .timeline-step-label {
+        left: 16px;
+        width: 24px;
+        height: 24px;
+        font-size: 0.68rem;
+        box-shadow: 0 0 0 2px #d97706;
+    }
+
+    .timeline-dot {
+        left: 16px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .timeline-card-img {
+        width: 180px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-section {
+        padding: 30px 16px;
+        border-radius: 16px;
+    }
+
+    .timeline-main-heading {
+        font-size: 1.8rem;
+    }
+
+    .daily-routine-timeline {
+        padding-left: 45px;
+        gap: 24px;
+    }
+
+    .timeline-line {
+        left: 15px;
+        width: 4px;
+    }
+
+    .timeline-node-wrap {
+        left: -45px;
+        width: 35px;
+        height: 30px;
+    }
+
+    .timeline-step-label {
+        left: 7px;
+        width: 20px;
+        height: 20px;
+        font-size: 0.56rem;
+        border-width: 2px;
+        box-shadow: 0 0 0 1.5px #d97706;
+    }
+
+    .timeline-dot {
+        left: 7px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .timeline-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .timeline-card-img {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+/* =========================================================
+   ALL-WEATHER RELIABLE SERVICE
+   3D Coverflow Carousel Styles
+   ========================================================= */
+
+.coverflow-carousel-container {
+    position: relative;
+    width: 100%;
+    padding: 30px 0 20px 0;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.coverflow-track {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 340px;
+    transform-style: preserve-3d;
+}
+
+.coverflow-card {
+    position: absolute;
+    width: 360px;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 0px !important;
+    overflow: hidden;
+    box-shadow: none !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.coverflow-card.active {
+    transform: translateX(0) translateZ(80px) rotateY(0deg) scale(1.05);
+    z-index: 10;
+    opacity: 1;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+}
+
+.coverflow-card.prev-1 {
+    transform: translateX(-270px) translateZ(0px) rotateY(0deg) scale(0.88);
+    z-index: 5;
+    opacity: 0.75;
+}
+
+.coverflow-card.next-1 {
+    transform: translateX(270px) translateZ(0px) rotateY(0deg) scale(0.88);
+    z-index: 5;
+    opacity: 0.75;
+}
+
+.coverflow-card.far {
+    transform: translateX(0) translateZ(-200px) rotateY(0deg) scale(0.7);
+    z-index: 1;
+    opacity: 0.25;
+}
+
+.coverflow-img-wrap {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    border-radius: 0px !important;
+}
+
+.coverflow-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.coverflow-card-body {
+    padding: 18px;
+}
+
+.coverflow-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.coverflow-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #475569;
+    margin: 0;
+}
+
+.coverflow-dots {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .coverflow-card {
+        width: 290px;
+    }
+    
+    .coverflow-card.prev-1 {
+        transform: translateX(-150px) translateZ(0px) rotateY(0deg) scale(0.82);
+    }
+
+    .coverflow-card.next-1 {
+        transform: translateX(150px) translateZ(0px) rotateY(0deg) scale(0.82);
+    }
+}
+    width: 100%;
+    margin-top: 28px;
+    align-items: stretch;
+}
+
+/* Fixed All-Weather cards — no animation, movement, or shadow */
+.weather-card-horizontal {
+    position: relative;
+    min-height: 185px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-left: 4px solid #d97706;
+    border-radius: 0px;
+    padding: 22px 18px;
+    overflow: hidden;
+
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Keep cards completely fixed on hover */
+.weather-card-horizontal:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Main text area */
+.weather-card-content {
+    width: calc(100% - 52px);
+    padding-right: 4px;
+    padding-top: 0px;
+}
+
+/* Card title */
+.weather-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    line-height: 1.25;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 7px 0;
+}
+
+/* Short description */
+.weather-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #475569;
+    margin: 0;
+}
+
+/* Image — top-right corner */
+.weather-card-icon-corner {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fef3c7;
+    border: 1px solid #d97706;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.weather-card-icon-corner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Force all four cards into one straight horizontal line */
+.weather-cards-grid > .weather-card-horizontal:nth-child(1),
+.weather-cards-grid > .weather-card-horizontal:nth-child(2),
+.weather-cards-grid > .weather-card-horizontal:nth-child(3),
+.weather-cards-grid > .weather-card-horizontal:nth-child(4) {
+    margin-top: 0 !important;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .weather-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        align-items: stretch;
+    }
+
+    .weather-card-horizontal {
+        min-height: 175px;
+        margin-top: 0 !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .weather-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .weather-card-horizontal {
+        min-height: 155px;
+        padding: 20px 18px;
+        margin-top: 0 !important;
+    }
+
+    .weather-card-content {
+        padding-top: 46px;
+    }
+
+    .weather-card-icon-corner {
+        width: 46px;
+        height: 46px;
+        top: 13px;
+        right: 13px;
+    }
+}
+
+
+/* =========================================================
+   WHAT WE PROVIDE SECTION
+   Previous-version styling — scoped ONLY to this section
+   ========================================================= */
+
+.providings-section {
+    margin-top: 50px;
+}
+
+.providings-section .providing-weather-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin-top: 24px;
+    align-items: stretch;
+}
+
+.providings-section .providing-weather-card {
+    position: relative;
+    min-height: 175px;
+    height: 100%;
+    width: 100%;
+    margin-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-left: 5px solid #d97706;
+    border-radius: 0px !important;
+    padding: 22px 22px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.providings-section .providing-weather-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.providings-section .providing-weather-card .weather-card-content {
+    width: 100%;
+    padding-top: 0;
+    padding-right: 0;
+}
+
+.providings-section .providing-weather-card .weather-card-icon-corner {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 0px !important;
+    overflow: hidden;
+    background: #fef3c7;
+    border: 1.5px solid #d97706;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.providings-section .providing-weather-card .weather-card-icon-corner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.providings-section .providing-weather-card .weather-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    line-height: 1.35;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 12px 0;
+    padding-right: 54px;
+    text-transform: uppercase;
+}
+
+.providings-section .providing-weather-card .weather-card-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    font-weight: 400;
+    color: #334155;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .providings-section .providing-weather-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .providings-section .providing-weather-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .providings-section .providing-weather-card {
+        min-height: 155px;
+    }
+}
+
+
+.about-service-bullets,
+.service-arrow-points { list-style:none; padding-left:0; margin:0; }
+.about-service-bullets li,
+.service-arrow-points li { display:flex; align-items:flex-start; gap:2px; }
+.about-service-bullets li i,
+.service-arrow-points li i { flex:0 0 auto; margin-top:5px; }
+
+/* Pause the continuous AVR Services To marquee while hovering a card/image. */
+.marquee-track:has(.location-card-sharp:hover) { animation-play-state: paused; }
+
+/* Keep How It Works cards unchanged when hovered; no gold border appears. */
+.timeline-card:hover { border-color: rgba(15, 23, 42, 0.08); }

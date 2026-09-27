@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "S. Radhika",
+    "role": "Parent of Master Rohan (Class 6, DPS Gachibowli)",
+    "rating": 5,
+    "feedback": "AVR DABBA has been a complete lifesaver for our family! I cook peacefully at 10 AM, and my son receives hot homemade food right at his school lunch bell. Outstanding punctuality and service!",
+    "date": "2026-08-28",
+    "verified": true
+  },
+  {
+    "id": 2,
+    "name": "K. Srinivas Rao",
+    "role": "Parent of Master Teja (Class 4, Oakridge)",
+    "rating": 5,
+    "feedback": "No more 5 AM morning rush! The delivery is always punctual and safe. Receiving WhatsApp delivery confirmations gives us absolute peace of mind every day.",
+    "date": "2026-08-25",
+    "verified": true
+  },
+  {
+    "id": 3,
+    "name": "Ananya Sharma",
+    "role": "Parent of Master Aarav (Class 8, Chirec)",
+    "rating": 5,
+    "feedback": "Truly exceptional service in Hyderabad. Knowing my child eats fresh homemade food cooked with love rather than canteen junk food makes all the difference.",
+    "date": "2026-08-20",
+    "verified": true
+  },
+  {
+    "id": 4,
+    "name": "Venkat Raman",
+    "role": "Parent of Master Nikhil (Class 5, Meridian School)",
+    "rating": 5,
+    "feedback": "Punctual delivery right to the classroom desk. Highly reliable delivery partners who handle every lunch box with care. Highly recommended to all busy parents!",
+    "date": "2026-08-15",
+    "verified": true
+  }
+]

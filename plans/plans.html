@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Prices - AVR DABBA</title>
+    <meta name="description" content="Explore AVR DABBA's distance-based lunch box delivery plans in Hyderabad. Basic plans and Multi-Box plans available for home to school delivery.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Main Parent Stylesheet -->
+    <link rel="stylesheet" href="../home.css">
+    <!-- Plans Page Specific Stylesheet -->
+    <link rel="stylesheet" href="plans.css">
+</head>
+<body>
+
+    <!-- Shared Common Navbar Component -->
+    <div id="navbar-component"></div>
+
+    <main>
+        <section class="plans-page-section">
+            <div class="container">
+                
+                <!-- Side Heading Styled Like Services Page -->
+                <div class="plans-clean-block">
+                    <h1 class="main-page-heading">PLANS</h1>
+                    <h2 class="section-subheading">Plan Prices</h2>
+                    <ul class="about-service-bullets mt-3">
+                        <li><i class="bi bi-arrow-right-circle-fill text-gold me-2"></i> Our plan prices are carefully designed based on delivery distance, frequency, and the number of lunch boxes required.</li>
+                        <li><i class="bi bi-arrow-right-circle-fill text-gold me-2"></i> We calculate each plan to keep the service affordable while ensuring reliable and timely delivery.</li>
+                        <li><i class="bi bi-arrow-right-circle-fill text-gold me-2"></i> Our pricing structure provides flexibility for both individual and multi-box requirements.</li>
+                        <li><i class="bi bi-arrow-right-circle-fill text-gold me-2"></i> You get a simple, transparent, and value-for-money plan that fits your family's needs.</li>
+                    </ul>
+                </div>
+
+                <!-- Plan Start Dates Section (Moved Above Subscription Plans) -->
+                <div class="plan-start-dates-section mt-5">
+                    <h2 class="section-subheading">Plan Start Dates</h2>
+                    <p class="service-prose-para mb-4">Choose your convenient subscription start date each month. We offer 3 flexible start cycles for hassle-free onboarding.</p>
+                    
+                    <div class="stepped-dates-container">
+                        <div class="stepped-date-card step-card-1">
+                            <div class="date-badge-num">01</div>
+                            <h3 class="date-card-title">1st of Every Month</h3>
+                            <p class="date-card-desc">Standard Monthly Cycle. Perfect for full calendar month school schedules.</p>
+                            <span class="date-tag">Cycle 1</span>
+                        </div>
+                        <div class="stepped-date-card step-card-2">
+                            <div class="date-badge-num">10</div>
+                            <h3 class="date-card-title">10th of Every Month</h3>
+                            <p class="date-card-desc">Mid-Month Cycle. Great for mid-term joiners with pro-rated billing ease.</p>
+                            <span class="date-tag">Cycle 2</span>
+                        </div>
+                        <div class="stepped-date-card step-card-3">
+                            <div class="date-badge-num">20</div>
+                            <h3 class="date-card-title">20th of Every Month</h3>
+                            <p class="date-card-desc">Late-Month Cycle. Ideal for quick onboarding without waiting for next month.</p>
+                            <span class="date-tag">Cycle 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subscription Plans Section -->
+                <div class="subscription-plans-section mt-5">
+                    <h2 class="section-subheading">Subscription Plans</h2>
+
+                    <!-- Structured Box-Grid Table with Visible Header Colors & Reference Banner Style -->
+                    <div class="plans-table-box-container">
+                        <!-- High Visibility Column Header Row -->
+                        <div class="plans-table-header">
+                            <div class="cell header-cell">Distance (KM)</div>
+                            <div class="cell header-cell">Monthly Plan</div>
+                            <div class="cell header-cell">Monthly Multi Box Plan</div>
+                            <div class="cell header-cell">Select</div>
+                        </div>
+
+                        <!-- Row 1: Up to 1 KM -->
+                        <div class="plans-table-row">
+                            <div class="cell cell-distance-banner">
+                                <span class="blue-dist-banner"><i class="bi bi-geo-alt-fill me-2"></i> UP TO 1 KM</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹599/-</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹599 + ₹349/-</span>
+                            </div>
+                            <div class="cell cell-action">
+                                <button type="button" class="btn btn-select-modal" data-plan="Up to 1 KM Plan">Select Plan</button>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: 1 to 2 KM -->
+                        <div class="plans-table-row">
+                            <div class="cell cell-distance-banner">
+                                <span class="blue-dist-banner"><i class="bi bi-geo-alt-fill me-2"></i> 1 TO 2 KM</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹749/-</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹749 + ₹449/-</span>
+                            </div>
+                            <div class="cell cell-action">
+                                <button type="button" class="btn btn-select-modal" data-plan="1 to 2 KM Plan">Select Plan</button>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: 2 to 3 KM -->
+                        <div class="plans-table-row">
+                            <div class="cell cell-distance-banner">
+                                <span class="blue-dist-banner"><i class="bi bi-geo-alt-fill me-2"></i> 2 TO 3 KM</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹899/-</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹899 + ₹549/-</span>
+                            </div>
+                            <div class="cell cell-action">
+                                <button type="button" class="btn btn-select-modal" data-plan="2 to 3 KM Plan">Select Plan</button>
+                            </div>
+                        </div>
+
+                        <!-- Row 4: 3 to 4 KM -->
+                        <div class="plans-table-row">
+                            <div class="cell cell-distance-banner">
+                                <span class="blue-dist-banner"><i class="bi bi-geo-alt-fill me-2"></i> 3 TO 4 KM</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹999/-</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹999 + ₹599/-</span>
+                            </div>
+                            <div class="cell cell-action">
+                                <button type="button" class="btn btn-select-modal" data-plan="3 to 4 KM Plan">Select Plan</button>
+                            </div>
+                        </div>
+
+                        <!-- Row 5: 4 to 5 KM -->
+                        <div class="plans-table-row">
+                            <div class="cell cell-distance-banner">
+                                <span class="blue-dist-banner"><i class="bi bi-geo-alt-fill me-2"></i> 4 TO 5 KM</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹1099/-</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹1099 + ₹649/-</span>
+                            </div>
+                            <div class="cell cell-action">
+                                <button type="button" class="btn btn-select-modal" data-plan="4 to 5 KM Plan">Select Plan</button>
+                            </div>
+                        </div>
+
+                        <!-- Row 6: 5 to 7 KM -->
+                        <div class="plans-table-row">
+                            <div class="cell cell-distance-banner">
+                                <span class="blue-dist-banner"><i class="bi bi-geo-alt-fill me-2"></i> 5 TO 7 KM</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹1299/-</span>
+                            </div>
+                            <div class="cell cell-price-box">
+                                <span class="price-green">₹1299 + ₹749/-</span>
+                            </div>
+                            <div class="cell cell-action">
+                                <button type="button" class="btn btn-select-modal" data-plan="5 to 7 KM Plan">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side-by-Side Compact Vertical Pamphlet Cards (Sharp Edges, Reduced Size, No Animation/Shadow) -->
+                <div class="pamphlet-display-section-compact">
+                    <h2 class="section-subheading">Our Service Pamphlets</h2>
+                    <div class="pamphlet-grid-compact">
+                        <div class="pamphlet-card-sharp">
+                            <img src="../images/home-pamphlet.jpg" alt="AVR DABBA Service Pamphlet (Home)" class="pamphlet-img-compact">
+                        </div>
+                        <div class="pamphlet-card-sharp">
+                            <img src="../images/plans-pamphlet.jpg" alt="AVR DABBA Pricing Pamphlet (Plans)" class="pamphlet-img-compact">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Step 1 Mini Modal: Calendar & Start Dates -->
+    <div class="mini-modal-overlay" id="selectPlanModal" aria-hidden="true">
+        <div class="mini-modal-card modal-wide">
+            <button type="button" class="mini-modal-close" id="miniModalCloseBtn" aria-label="Close">&times;</button>
+            
+            <div class="modal-header-block">
+                <h3 class="mini-modal-title" id="selectedPlanTitle">Select Plan</h3>
+                <p class="mini-modal-subtitle">Choose your subscription start date (1st, 10th, or 20th)</p>
+            </div>
+
+            <div class="modal-body-grid">
+                <!-- Left Side: Small Calendar (Only 1st, 10th, 20th Selectable) -->
+                <div class="modal-calendar-col">
+                    <div class="calendar-header">
+                        <button type="button" class="cal-nav-btn" id="calPrevMonthBtn" aria-label="Previous Month">&lsaquo;</button>
+                        <span class="cal-month-title" id="calMonthTitle">September 2026</span>
+                        <button type="button" class="cal-nav-btn" id="calNextMonthBtn" aria-label="Next Month">&rsaquo;</button>
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                    </div>
+
+                    <div class="calendar-days-grid" id="calendarDaysGrid">
+                        <!-- Rendered dynamically by plans.js -->
+                    </div>
+
+                    <p class="calendar-note-text"><i class="bi bi-info-circle me-1"></i> Only 1st, 10th &amp; 20th are valid start dates.</p>
+                </div>
+
+                <!-- Right Side: Start Date Options -->
+                <div class="modal-options-col">
+                    <h4 class="modal-col-heading">START DATE</h4>
+
+                    <div class="start-date-options-list" id="startDateOptionsList">
+                        <!-- Rendered dynamically by plans.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2 Mini Modal: Contact Actions (Appears after clicking Select on a Start Date) -->
+    <div class="mini-modal-overlay" id="contactModal" aria-hidden="true">
+        <div class="mini-modal-card contact-modal-card">
+            <button type="button" class="mini-modal-close" id="contactModalCloseBtn" aria-label="Close">&times;</button>
+            
+            <div class="contact-modal-header text-center mb-3">
+                <div class="success-icon-wrap mb-1"><i class="bi bi-check-circle-fill text-success fs-1"></i></div>
+                <h3 class="mini-modal-title" id="contactPlanTitle">Up to 1 KM Plan</h3>
+                <div class="contact-date-badge" id="contactDateBadge">Start Date: October 1st, 2026</div>
+            </div>
+
+            <p class="mini-modal-subtitle text-center">Click below to finalize your booking with us:</p>
+
+            <div class="mini-modal-actions">
+                <a href="https://wa.me/919281271759" class="btn mini-btn-whatsapp" id="contactWhatsappBtn" target="_blank" rel="noopener">
+                    <i class="bi bi-whatsapp me-2"></i> Book via WhatsApp
+                </a>
+                <a href="tel:9281271759" class="btn mini-btn-call">
+                    <i class="bi bi-telephone-fill me-2"></i> Call Us
+                </a>
+                <button type="button" class="btn btn-link-back mt-2" id="backToCalendarBtn">
+                    <i class="bi bi-arrow-left me-1"></i> Change Start Date
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matching Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-brand-logo">
+                    <img src="../images/dabba-hero.png" alt="AVR DABBA Logo" style="width: 120px; height: auto; margin-bottom: 20px;">
+                </div>
+                <div class="footer-brand-title">AVR DABBA</div>
+                <p class="footer-tagline">YOU COOK WITH LOVE • WE DELIVER WITH CARE</p>
+                <p class="footer-about">Hyderabad's specialized home-to-school lunch box pickup and delivery service. Ensuring children enjoy healthy, warm, mother-cooked meals at their school desks on time every day.</p>
+                <div class="footer-quote">"You Cook With Love – We Deliver With Care"</div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../about us/aboutus.html">About Us</a></li>
+                    <li><a href="../Services/Services.html">Services</a></li>
+                    <li><a href="plans.html">Plans</a></li>
+                    <li><a href="../testimonials/testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Promise</h4>
+                <ul class="footer-links">
+                    <li>No 5:00 AM Morning Rush</li>
+                    <li>Fresh & Hot Food Guarantee</li>
+                    <li>Verified Delivery Fleet</li>
+                    <li>Classroom Desk Handover</li>
+                    <li>Zero Food Preparation (Home Food Only)</li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h4>Get in Touch</h4>
+                <p><i class="bi bi-telephone-fill text-gold me-2"></i> <strong>Call / WhatsApp:</strong> 92812 71759</p>
+                <p><i class="bi bi-envelope-fill text-gold me-2"></i> <strong>Email:</strong> avrdabba@gmail.com</p>
+                <p><i class="bi bi-instagram text-gold me-2"></i> <strong>Instagram:</strong> @avrdabba_hyd</p>
+                <p><i class="bi bi-geo-alt-fill text-gold me-2"></i> Hyderabad, Telangana, India</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>© 2026 AVR DABBA. All Rights Reserved. "You Cook With Love – We Deliver With Care"</p>
+                <div class="footer-social-links">
+                    <a href="https://wa.me/919281271759" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://instagram.com/avrdabba_hyd" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="tel:9281271759" aria-label="Phone"><i class="bi bi-telephone-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Navigation Component Script -->
+    <script src="../navbar.js"></script>
+    <!-- Plans JavaScript -->
+    <script src="plans.js"></script>
+</body>
+</html>

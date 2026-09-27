@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVR DABBA - Fresh Homemade School Lunch Delivery Service</title>
+    <meta name="description" content="AVR DABBA collects warm homemade lunch boxes from parents' kitchens and delivers them safely to children's schools before lunch break. You Cook With Love, We Deliver With Care.">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- Shared Common Navbar Component -->
+    <div id="navbar-component"></div>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-bg-parallax" id="heroBgParallax"></div>
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            <div class="container hero-container-layout">
+                <!-- Upper Row: Headline Left, Fixed Lunch Box Video Right -->
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="trust-badge">
+                            <span class="badge-icon"><i class="bi bi-shield-check me-2"></i></span>
+                            <span>Government Udyam Registered &amp; Trusted Delivery</span>
+                        </div>
+                        <h1 class="hero-title hero-headline-layout">
+                            <span class="hero-col-left">
+                                <span>YOU COOK</span>
+                                <span>WE DELIVER</span>
+                            </span>
+                            <span class="hero-col-center">WITH</span>
+                            <span class="hero-col-right">
+                                <span class="highlight-sky-blue">LOVE,</span>
+                                <span class="highlight-lavender">CARE.</span>
+                            </span>
+                        </h1>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-image-wrapper">
+                            <!-- <video src="images/Box_rotating_360_degrees_1080p_202609021249.mp4" autoplay muted loop playsinline width="100%" height="100%"></video> -->
+                            <!-- <img src="images/AVR_home.gif" alt="Lunch Box" width="100%" height="100%"> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle Row: Centered Expanded Buttons -->
+                <div class="hero-cta-group hero-cta-centered">
+                    <a href="https://wa.me/919281271759?text=Hi%20AVR%20DABBA%2C%20I%20would%20like%20to%20book%20a%20dabba." class="btn btn-hero-primary" target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp me-2"></i> Book a Dabba
+                    </a>
+                    <a href="tel:9281271759" class="btn btn-hero-secondary">
+                        <i class="bi bi-telephone-fill me-2"></i> Contact us
+                    </a>
+                </div>
+
+                <!-- Bottom Row: Metrics at the Bottom of Section -->
+                <div class="hero-metrics hero-metrics-bottom">
+                    <div class="metric-item">
+                        <span class="metric-value" data-target="500">500+</span>
+                        <span class="metric-label">Happy Parents</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-value">100%</span>
+                        <span class="metric-label">On-Time Lunch Bell Guarantee</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-value">Fresh</span>
+                        <span class="metric-label">Home Cooked Meal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem & Solution Section (About Us) -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle"><i class="fa-solid fa-heart-pulse"></i> Why Parents Love AVR DABBA</span>
+                    <h2 class="section-title">WHY CHOOSE AVR DABBA?</h2>
+                    <p class="section-desc">Mornings can be chaotic—preparing breakfast, packing school bags, getting children ready, and rushing for work. Packing hot lunch by 7 AM is tough. We make it easy!</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card problem-card">
+                        <div class="card-badge badge-problem">Before AVR DABBA</div>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-xmark text-danger"></i> Rushing to cook and pack meals at 6:30 AM</li>
+                            <li><i class="fa-solid fa-xmark text-danger"></i> Food gets cold and soggy inside school bags by lunch</li>
+                            <li><i class="fa-solid fa-xmark text-danger"></i> Children forced to rely on unhygienic canteen food</li>
+                            <li><i class="fa-solid fa-xmark text-danger"></i> Constant anxiety about whether your child ate healthy</li>
+                        </ul>
+                    </div>
+
+                    <div class="versus-badge">VS</div>
+
+                    <div class="about-card solution-card">
+                        <div class="card-badge badge-solution">With AVR DABBA</div>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-check text-success"></i> Cook peacefully at 10:00 AM at your natural pace</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Delivered steaming hot right before the school lunch bell</li>
+                            <li><i class="fa-solid fa-check text-success"></i> 100% wholesome homemade food packed with mother's love</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Instant SMS/WhatsApp delivery notification on arrival</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Core Pillars -->
+                <div class="pillars-grid mt-5">
+                    <div class="pillar-box">
+                        <h3>LESS MORNING STRESS</h3>
+                        <p>No more coordinating the journey to school on top of everything else.</p>
+                    </div>
+                    <div class="pillar-box">
+                        <h3>MORE FLEXIBILITY</h3>
+                        <p>Prepare the meal whenever it genuinely suits your routine.</p>
+                    </div>
+                    <div class="pillar-box">
+                        <h3>HOMEMADE FOOD</h3>
+                        <p>Your child still eats what you made, not something out of a packet.</p>
+                    </div>
+                    <div class="pillar-box">
+                        <h3>PEACE OF MIND</h3>
+                        <p>Your child's lunch is in the hands of a dedicated delivery service.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section how-section" id="how-it-works">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle"><i class="fa-solid fa-arrows-spin"></i> Simple & Reliable Process</span>
+                    <h2 class="section-title">HOW AVR DABBA WORKS IN 4 EASY STEPS</h2>
+                </div>
+
+                <div class="steps-wrapper">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon"><i class="fa-solid fa-bowl-rice"></i></div>
+                        <h3>YOU COOK AT EASE</h3>
+                        <p>Parents prepare fresh homemade food peacefully in the morning without early morning panic.</p>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon"><i class="fa-solid fa-box-tissue"></i></div>
+                        <h3>DOORSTEP PICKUP</h3>
+                        <p>AVR DABBA driver collects the tagged lunch box from your home during scheduled pickup slots.</p>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                        <h3>THERMAL TRANSIT</h3>
+                        <p>Boxes are carried safely in thermal bags to keep food piping warm and completely untouched.</p>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <div class="step-icon"><i class="fa-solid fa-school-circle-check"></i></div>
+                        <h3>SCHOOL DELIVERY & ALERT</h3>
+                        <p>Handed over to the school lunch coordinator before the bell. Parent gets instant delivery SMS!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Action Cards Section -->
+        <section class="section quick-actions-section">
+            <div class="container">
+                <div class="actions-grid">
+                    <div class="action-card book-card">
+                        <div class="action-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h3>READY TO BOOK?</h3>
+                        <p>Get your child fresh homemade meals delivered safely every school day.</p>
+                        <a href="https://wa.me/919281271759?text=Hi%20AVR%20DABBA%2C%20I%20would%20like%20to%20book%20a%20dabba." class="btn btn-primary" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i> Book a Dabba
+                        </a>
+                    </div>
+
+                    <div class="action-card contact-card">
+                        <div class="action-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h3>HAVE QUESTIONS?</h3>
+                        <p>Our team is here to help! Talk to us about delivery options and pricing.</p>
+                        <a href="tel:9281271759" class="btn btn-outline-call">
+                            <i class="fa-solid fa-phone"></i> Contact Us: 9281271759
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonial-section" id="reviews">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle"><i class="fa-solid fa-quote-left"></i> Parent Testimonials</span>
+                    <h2 class="section-title">WHAT PARENTS SAY ABOUT US</h2>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"As a working mother, packing lunch at 6:30 AM was pure chaos. AVR DABBA has been a lifesaver! I cook fresh rice and curry at 10 AM, and my son gets hot food right at 12:15 PM at school."</p>
+                        <div class="user-meta">
+                            <div class="user-avatar">P</div>
+                            <div>
+                                <h4>PRIYA REDDY</h4>
+                                <span>Parent at DPS Gachibowli</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"The SMS alert gives me complete peace of mind. Every afternoon at 12:10 PM I get a message saying dabba delivered. Highly reliable and super polite delivery boys!"</p>
+                        <div class="user-meta">
+                            <div class="user-avatar">S</div>
+                            <div>
+                                <h4>SURESH KUMAR</h4>
+                                <span>Parent at Chirec Kondapur</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"My daughter hated canteen food and wanted home food. AVR DABBA made it possible for us to deliver her favorite warm food every day without early morning stress."</p>
+                        <div class="user-meta">
+                            <div class="user-avatar">A</div>
+                            <div>
+                                <h4>ANITHA RAO</h4>
+                                <span>Parent at BVB Jubilee Hills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container text-center">
+                <h2>GIVE YOUR CHILD FRESH HOMEMADE MEALS & GIVE YOURSELF STRESS-FREE MORNINGS</h2>
+                <p>Join hundreds of smart parents in Hyderabad today. Registration takes less than 2 minutes!</p>
+                <div class="cta-banner-buttons">
+                    <button class="btn btn-gold btn-lg open-modal-btn" data-modal="scheduleModal">
+                        <i class="fa-solid fa-calendar-plus"></i> Schedule Pickup Now
+                    </button>
+                    <a href="tel:9281271759" class="btn btn-outline-light btn-lg">
+                        <i class="fa-solid fa-headset"></i> Talk to Us: 9281271759
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-brand-logo">
+                    <img src="images/dabba-hero.png" alt="AVR DABBA Logo" style="width: 120px; height: auto; margin-bottom: 20px;">
+                </div>
+                <div class="footer-brand-title">AVR DABBA</div>
+                <p class="footer-tagline">YOU COOK WITH LOVE • WE DELIVER WITH CARE</p>
+                <p class="footer-about">Hyderabad's specialized home-to-school lunch box pickup and delivery service. Ensuring children enjoy healthy, warm, mother-cooked meals at their school desks on time every day.</p>
+                <div class="footer-quote">"You Cook With Love – We Deliver With Care"</div>
+            </div>
+
+            <div class="footer-col">
+                <h4>NAVIGATION</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#how-it-works">How it works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>OUR PROMISE</h4>
+                <ul class="footer-links">
+                    <li>No 5:00 AM Morning Rush</li>
+                    <li>Fresh & Hot Food Guarantee</li>
+                    <li>Verified Delivery Fleet</li>
+                    <li>Classroom Desk Handover</li>
+                    <li>Zero Food Preparation (Home Food Only)</li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h4>GET IN TOUCH</h4>
+                <p><i class="fa-solid fa-phone text-gold"></i> <strong>Call / WhatsApp:</strong> 92812 71759</p>
+                <p><i class="fa-solid fa-envelope text-gold"></i> <strong>Email:</strong> avrdabba@gmail.com</p>
+                <p><i class="fa-brands fa-instagram text-gold"></i> <strong>Instagram:</strong> @avrdabba_hyd</p>
+                <p><i class="fa-solid fa-location-dot text-gold"></i> Hyderabad, Telangana, India</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>© 2026 AVR DABBA. All Rights Reserved. "You Cook With Love – We Deliver With Care"</p>
+                <div class="footer-social-links">
+                    <a href="https://wa.me/919281271759" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/avrdabba_hyd" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="tel:9281271759" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-btn-group">
+        <a href="https://wa.me/919281271759?text=Hi%20AVR%20DABBA,%20I%20want%20to%20know%20more%20about%20school%20lunch%20delivery" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="float-tooltip">Chat with Us</span>
+        </a>
+        <button class="float-btn float-schedule open-modal-btn" data-modal="scheduleModal" aria-label="Schedule Lunch Delivery">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span class="float-tooltip">Book Lunch Delivery</span>
+        </button>
+    </div>
+
+    <!-- Booking Modal Popup -->
+    <div class="modal-backdrop" id="scheduleModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <h3 class="modal-title"><i class="fa-solid fa-box-open text-gold"></i> SCHEDULE LUNCH PICKUP</h3>
+                    <p class="modal-subtitle">Fill in details for your child's school lunch box pickup.</p>
+                </div>
+                <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="scheduleForm">
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="parentName">Parent Full Name <span class="text-danger">*</span></label>
+                            <input type="text" id="parentName" class="form-control" placeholder="e.g. S. Radhika" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="parentPhone">Phone Number (WhatsApp) <span class="text-danger">*</span></label>
+                            <input type="tel" id="parentPhone" class="form-control" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="studentName">Child / Student Name <span class="text-danger">*</span></label>
+                            <input type="text" id="studentName" class="form-control" placeholder="e.g. Master Rohan" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="classSection">Class & Section <span class="text-danger">*</span></label>
+                            <input type="text" id="classSection" class="form-control" placeholder="e.g. Class 6 - B" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="schoolName">School Name & Branch <span class="text-danger">*</span></label>
+                            <input type="text" id="schoolName" class="form-control" placeholder="e.g. DPS Gachibowli" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="planSelect">Selected Plan <span class="text-danger">*</span></label>
+                            <select id="planSelect" class="form-control" required>
+                                <option value="Monthly School Pass (₹899/mo)">Monthly School Pass (₹899/mo) - Recommended</option>
+                                <option value="Single Day Flexi (₹49/day)">Single Day Flexi (₹49/day)</option>
+                                <option value="Term Pass (₹2399/quarter)">Term Pass (₹2399/quarter)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pickupAddress">Home Pickup Address & Landmark <span class="text-danger">*</span></label>
+                        <textarea id="pickupAddress" class="form-control" rows="2" placeholder="House No, Apartment/Gated Community, Area, Pincode..." required></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline" id="modalCancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Submit Pickup Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Shared Navigation Component Script -->
+    <script src="navbar.js"></script>
+    <!-- Main JavaScript -->
+    <script src="home.js"></script>
+</body>
+</html>

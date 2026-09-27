@@ -1,0 +1,380 @@
+/* ==========================================================================
+   AVR DABBA - Testimonials Stylesheet (testimonials.css)
+   Side-by-side Rectangular Bar Reviews & Highlighted Ratings Layout
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
+
+:root {
+    --primary-navy: #0f172a;
+    --gold-accent: #d97706;
+    --gold-star: #f59e0b;
+    --spice-red: #be123c;
+    --bg-white: #ffffff;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-subtle: rgba(15, 23, 42, 0.1);
+    --font-heading: Arial, Helvetica, sans-serif;
+    --font-body: Arial, Helvetica, sans-serif;
+}
+
+/* Global scrollbar disable & hide rules */
+html, body, div, section, main, article, aside, nav {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+h2, h3, h4, h5, h6,
+.section-subheading,
+.section-title,
+.sub-page-heading,
+.subheading,
+.sub-title,
+.testimonial-title,
+.reviewer-name {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--text-dark);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+.testimonials-section {
+    padding: 40px 0 80px 0;
+}
+
+.testimonials-clean-block {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+.service-prose-para {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   1. Side-by-Side 2-Column Layout (Sharp Edges, No Animations/Shadows)
+   -------------------------------------------------------------------------- */
+.testimonials-side-by-side {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 36px;
+    align-items: start;
+}
+
+/* Left Column: Reviews Header & Bar Cards */
+.reviews-left-col {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 !important;
+    padding: 28px;
+    box-shadow: none !important;
+}
+
+.reviews-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.reviews-header-title h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin: 0;
+}
+
+/* Highlighted Digital Rating Badge in Top Right Corner */
+.digital-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fffbeb !important;
+    border: 1.5px solid #fcd34d !important;
+    border-radius: 0 !important;
+    padding: 8px 16px;
+    box-shadow: 0 4px 12px rgba(180, 83, 9, 0.08) !important;
+}
+
+.digital-rating-badge .rating-number {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #b45309;
+    line-height: 1;
+}
+
+.digital-rating-badge .rating-max {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #b45309;
+}
+
+.digital-rating-badge .rating-stars {
+    color: #f59e0b;
+    font-size: 1.05rem;
+    display: flex;
+    gap: 2px;
+}
+
+.digital-rating-badge .reviews-total {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+/* --------------------------------------------------------------------------
+   2. Rectangular Bar Type Review Cards (Highlighted Stars, Sharp Edges)
+   -------------------------------------------------------------------------- */
+.reviews-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.review-bar-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid var(--primary-navy);
+    border-radius: 0 !important;
+    padding: 20px 24px;
+    box-shadow: none !important;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: none !important;
+}
+
+.review-bar-card.newly-added {
+    border-left-color: var(--gold-accent);
+    background: #fffbeb;
+}
+
+.card-bar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.card-bar-author {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    line-height: 1.2;
+}
+
+.author-role {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.card-bar-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Highlighted Gold Star Rating Display */
+.star-rating-display {
+    color: #f59e0b !important;
+    font-size: 1.1rem !important;
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.author-date {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.card-bar-body {
+    position: relative;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.review-text {
+    font-size: 0.98rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.btn-toggle-more {
+    background: none;
+    border: none;
+    color: #0D6EFD;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-toggle-more:hover {
+    text-decoration: underline;
+    color: #0b5ed7;
+}
+
+/* --------------------------------------------------------------------------
+   3. Right Column: Professional Feedback Form (Sharp Edges, No Shadow)
+   -------------------------------------------------------------------------- */
+.feedback-right-col {
+    position: sticky;
+    top: 100px;
+}
+
+.feedback-form-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 !important;
+    padding: 32px;
+    box-shadow: none !important;
+}
+
+.form-card-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.form-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 6px;
+}
+
+.required-star {
+    color: var(--spice-red);
+}
+
+.star-rating-input {
+    display: flex;
+    gap: 10px;
+    font-size: 1.8rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    user-select: none;
+}
+
+.star-rating-input .star-icon:hover,
+.star-rating-input .star-icon.active {
+    color: #f59e0b;
+}
+
+.form-control-sharp {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 !important;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-control-sharp:focus {
+    border-color: var(--gold-accent);
+}
+
+.btn-submit-feedback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--primary-navy);
+    border: 2px solid var(--primary-navy);
+    border-radius: 0 !important;
+    cursor: pointer;
+}
+
+.btn-submit-feedback:hover {
+    background: #1e293b;
+    border-color: #1e293b;
+}
+
+/* Responsive queries */
+@media (max-width: 992px) {
+    .testimonials-side-by-side {
+        grid-template-columns: 1fr;
+    }
+    .feedback-right-col {
+        position: static;
+    }
+}

@@ -1,0 +1,820 @@
+/* ==========================================================================
+   AVR DABBA - Plans & Pricing Stylesheet (plans.css)
+   Visible Table Headers, Reference Banner Price Styling, & Compact Pamphlets
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
+
+:root {
+    --primary-navy: #0f172a;
+    --gold-accent: #d97706;
+    --gold-star: #f59e0b;
+    --spice-red: #be123c;
+    --bg-white: #ffffff;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-subtle: rgba(15, 23, 42, 0.12);
+    --font-heading: Arial, Helvetica, sans-serif;
+    --font-body: Arial, Helvetica, sans-serif;
+}
+
+/* Global scrollbar disable & hide rules */
+html, body, div, section, main, article, aside, nav {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+h2, h3, h4, h5, h6,
+.section-subheading,
+.section-title,
+.sub-page-heading,
+.subheading,
+.sub-title,
+.plan-card-title,
+.table-title,
+.pamphlet-title {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--text-dark);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+.plans-page-section {
+    padding: 40px 0 80px 0;
+    background-color: #ffffff;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: 16px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   1. Clean Prose Block (Matching Services Page)
+   -------------------------------------------------------------------------- */
+.plans-clean-block {
+    margin-bottom: 60px;
+}
+
+.plan-start-dates-section {
+    margin-top: 65px;
+    margin-bottom: 95px;
+}
+
+.subscription-plans-section {
+    margin-top: 85px;
+    margin-bottom: 85px;
+}
+
+.service-prose-para {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #334155;
+    margin: 0;
+}
+
+/* Feature Highlights Bar between Paragraph & Table */
+.plans-features-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 18px 24px;
+    margin-bottom: 32px;
+}
+
+.plans-features-bar .feature-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.plans-features-bar .feature-item i {
+    font-size: 1.2rem;
+    color: var(--gold-accent);
+}
+
+/* --------------------------------------------------------------------------
+   2. Box-Grid Table Container (Visible Headers & Reference Banner Style)
+   -------------------------------------------------------------------------- */
+.plans-table-box-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #cbd5e1;
+    border-radius: 0 !important;
+    overflow: hidden;
+    margin-bottom: 60px;
+    box-shadow: none !important;
+}
+
+.plans-table-header {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.3fr 1fr;
+    background: var(--primary-navy);
+}
+
+.header-cell {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 16px 20px;
+    text-align: center;
+    color: #ffffff !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-cell:last-child {
+    border-right: none;
+}
+
+.plans-table-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.3fr 1fr;
+    border-top: 1px solid #cbd5e1;
+    background: #ffffff;
+}
+
+.cell {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #cbd5e1;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    box-sizing: border-box;
+}
+
+.cell:last-child {
+    border-right: none;
+}
+
+.cell-distance-banner {
+    justify-content: center;
+    background: #ffffff;
+}
+
+.blue-dist-banner {
+    background: #0056b3;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 86, 179, 0.2);
+}
+
+.cell-price-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.price-green {
+    color: #16a34a;
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+
+.btn-select-modal {
+    background: #25D366 !important;
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    width: 100%;
+}
+
+.btn-select-modal:hover {
+    background: #1eb857 !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Plan Start Dates Section (3 Stepped Overlapping Boxes)
+   -------------------------------------------------------------------------- */
+.plan-start-dates-section {
+    margin-top: 50px;
+}
+
+.stepped-dates-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px 0 60px 0;
+    min-height: 310px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.stepped-date-card {
+    position: absolute;
+    width: 320px;
+    background: #ffffff;
+    border: 3px solid #0f172a;
+    padding: 24px 28px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, z-index 0.35s ease;
+    cursor: pointer;
+}
+
+.step-card-1 {
+    top: 0;
+    left: 40px;
+    z-index: 1;
+}
+
+.step-card-2 {
+    top: 50px;
+    left: calc(50% - 160px);
+    z-index: 2;
+}
+
+.step-card-3 {
+    top: 100px;
+    right: 40px;
+    z-index: 3;
+}
+
+.stepped-date-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.2);
+    z-index: 10;
+}
+
+.date-badge-num {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold-accent);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.date-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.date-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+.date-tag {
+    display: inline-block;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Side-by-Side Compact Pamphlet Cards (Sharp Edges, Reduced Size)
+   -------------------------------------------------------------------------- */
+.pamphlet-display-section-compact {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.pamphlet-grid-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.pamphlet-card-sharp {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 10px;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.pamphlet-img-compact {
+    width: 100%;
+    height: auto;
+    border-radius: 0 !important;
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   4. Centered Mini Modal Popup (Unchanged Modal Behavior)
+   -------------------------------------------------------------------------- */
+.mini-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.mini-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mini-modal-card {
+    background: #ffffff;
+    border: 2px solid #0f172a;
+    border-radius: 12px;
+    padding: 28px 28px;
+    width: 94%;
+    max-width: 580px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mini-modal-card.modal-wide {
+    max-width: 680px;
+}
+
+.mini-modal-overlay.active .mini-modal-card {
+    transform: scale(1);
+}
+
+.mini-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+    z-index: 10;
+}
+
+.mini-modal-close:hover {
+    color: #0f172a;
+}
+
+.modal-header-block {
+    margin-bottom: 20px;
+    padding-right: 36px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 14px;
+}
+
+.mini-modal-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.mini-modal-subtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.modal-body-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Left Calendar Column */
+.modal-calendar-col {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.cal-month-title {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #0f172a;
+}
+
+.cal-nav-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #334155;
+}
+
+.cal-nav-btn:hover {
+    background: #e2e8f0;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.calendar-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.cal-day-cell {
+    aspect-ratio: 1;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    cursor: not-allowed;
+}
+
+.cal-day-cell.empty {
+    border: none;
+    background: transparent;
+}
+
+.cal-day-cell.disabled-date,
+.cal-day-cell.past-date {
+    opacity: 0.35;
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.cal-day-cell.valid-start-date {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #7dd3fc;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cal-day-cell.valid-start-date:hover {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+    transform: scale(1.08);
+}
+
+.cal-day-cell.selected {
+    background: #16a34a !important;
+    color: #ffffff !important;
+    border-color: #15803d !important;
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.3);
+}
+
+.calendar-note-text {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+/* Right Side Start Date Options */
+.modal-options-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-col-heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #0f172a;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.start-date-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.start-date-row-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.start-date-row-item:hover:not(.disabled-item) {
+    border-color: #0284c7;
+    background: #f0f9ff;
+}
+
+.start-date-row-item.selected-item {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.15);
+}
+
+.start-date-row-item.disabled-item {
+    opacity: 0.55;
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+.date-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-item-title {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #0f172a;
+}
+
+.available-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    background: #dcfce7;
+    color: #15803d;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.passed-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.btn-horizontal-select {
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-horizontal-select:hover:not(:disabled) {
+    background: #0284c7;
+}
+
+.btn-horizontal-select:disabled {
+    background: #cbd5e1;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+.selected-date-confirmation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.conf-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #065f46;
+}
+
+.conf-date-badge {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #047857;
+}
+
+.mini-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.mini-btn-whatsapp {
+    background: #25D366;
+    color: #ffffff;
+    padding: 14px 24px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-btn-whatsapp:hover {
+    background: #1eb857;
+    color: #ffffff;
+}
+
+.mini-btn-call {
+    background: #0D6EFD;
+    color: #ffffff;
+    padding: 14px 24px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-btn-call:hover {
+    background: #0b5ed7;
+    color: #ffffff;
+}
+
+/* Responsive Queries */
+@media (max-width: 768px) {
+    .plans-table-header,
+    .plans-table-row {
+        grid-template-columns: 1fr;
+    }
+
+    .cell {
+        border-right: none;
+        border-bottom: 1px solid #cbd5e1;
+    }
+
+    .pamphlet-grid-compact {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Price values styled like compact non-clickable button cards */
+.cell-price-box .price-green {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 7px 16px;
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 6px;
+    color: #15803d;
+    font-weight: 900;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+/* Select Plan: same size and position, only a light darkening on hover */
+.btn-select-modal {
+    transition: background-color 0.25s ease, color 0.25s ease !important;
+}
+
+.btn-select-modal:hover {
+    background: #20b957 !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Step 2 Contact Modal Styles */
+.contact-modal-card {
+    max-width: 440px;
+    width: 90%;
+    padding: 28px 24px;
+    text-align: center;
+}
+
+.contact-date-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #7dd3fc;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 6px;
+}
+
+.btn-link-back {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.btn-link-back:hover {
+    color: #0f172a;
+}
+
+

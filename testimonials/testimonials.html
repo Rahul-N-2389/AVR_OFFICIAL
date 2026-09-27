@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Reviews & Testimonials - AVR DABBA</title>
+    <meta name="description" content="Read real reviews and feedback from parents using AVR DABBA home-to-school lunch delivery service in Hyderabad. Leave your own feedback and rating.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Parent Main Stylesheet -->
+    <link rel="stylesheet" href="../home.css">
+    <!-- Testimonials Page Stylesheet -->
+    <link rel="stylesheet" href="testimonials.css">
+</head>
+<body>
+
+    <!-- Shared Common Navbar Component -->
+    <div id="navbar-component"></div>
+
+    <main>
+        <!-- Testimonials Main Section (Side-by-Side Professional Layout) -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h1 class="main-page-heading">TESTIMONIALS</h1>
+                <div class="testimonials-clean-block">
+                    <h2 class="section-subheading">Parent Reviews &amp; Feedback</h2>
+                    <p class="service-prose-para">Real reviews from parents across Hyderabad relying on AVR DABBA daily.</p>
+                </div>
+
+                <!-- Side by Side Layout Container: Left = Reviews List, Right = Feedback Form -->
+                <div class="testimonials-side-by-side">
+                    
+                    <!-- Left Side: Reviews List & Digital Rating Header -->
+                    <div class="reviews-left-col">
+                        <div class="reviews-header-bar">
+                            <div class="reviews-header-title">
+                                <h2 class="section-subheading"><i class="bi bi-chat-square-quote-fill text-gold me-2"></i>Parent Reviews</h2>
+                            </div>
+                            <!-- Digital Rating Badge in Top Right Corner of Reviews -->
+                            <div class="digital-rating-badge" id="digitalRatingBadge">
+                                <span class="rating-number" id="avgRatingValue">5.0</span>
+                                <span class="rating-max">/ 5.0</span>
+                                <div class="rating-stars" id="avgRatingStars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="reviews-total" id="reviewsCountLabel">(4 reviews)</span>
+                            </div>
+                        </div>
+
+                        <!-- Bar Rectangle Type Reviews Container -->
+                        <div class="reviews-list-container" id="reviewsContainer">
+                            <!-- Dynamic Review Bar Cards Loaded via testimonials.js -->
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Professional Feedback Page / Form -->
+                    <div class="feedback-right-col" id="feedbackFormSection">
+                        <div class="feedback-form-card">
+                            <div class="form-card-header">
+                                <h2 class="section-subheading"><i class="bi bi-pencil-square text-gold me-2"></i>Give Your Feedback</h2>
+                                <p class="form-subtitle">Share your experience with AVR DABBA school lunch delivery.</p>
+                            </div>
+
+                            <form id="feedbackForm">
+                                <!-- Interactive 5-Star Selection -->
+                                <div class="form-group">
+                                    <label class="form-label">Overall Service Rating <span class="required-star">*</span></label>
+                                    <div class="star-rating-input" id="starRatingInput">
+                                        <i class="bi bi-star star-icon" data-value="1"></i>
+                                        <i class="bi bi-star star-icon" data-value="2"></i>
+                                        <i class="bi bi-star star-icon" data-value="3"></i>
+                                        <i class="bi bi-star star-icon" data-value="4"></i>
+                                        <i class="bi bi-star star-icon" data-value="5"></i>
+                                    </div>
+                                    <input type="hidden" id="ratingValue" value="0">
+                                </div>
+
+                                <!-- Parent Name Input -->
+                                <div class="form-group">
+                                    <label for="userName" class="form-label">Your Full Name <span class="required-star">*</span></label>
+                                    <input type="text" id="userName" class="form-control-sharp" placeholder="e.g. S. Radhika" required>
+                                </div>
+
+                                <!-- Relationship / Role Input -->
+                                <div class="form-group">
+                                    <label for="userRole" class="form-label">School / Relationship Context</label>
+                                    <input type="text" id="userRole" class="form-control-sharp" placeholder="e.g. Parent of Rohan (DPS Gachibowli)">
+                                </div>
+
+                                <!-- Feedback Message Text Area -->
+                                <div class="form-group">
+                                    <label for="userFeedback" class="form-label">Your Review <span class="required-star">*</span></label>
+                                    <textarea id="userFeedback" class="form-control-sharp" rows="5" placeholder="Tell us about your experience with AVR DABBA lunch delivery..." required></textarea>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn-submit-feedback">
+                                    <i class="bi bi-send-fill me-2"></i> Submit Review
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Matching Home Page) -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-brand-logo">
+                    <img src="../images/dabba-hero.png" alt="AVR DABBA Logo" style="width: 120px; height: auto; margin-bottom: 20px;">
+                </div>
+                <div class="footer-brand-title">AVR DABBA</div>
+                <p class="footer-tagline">YOU COOK WITH LOVE • WE DELIVER WITH CARE</p>
+                <p class="footer-about">Hyderabad's specialized home-to-school lunch box pickup and delivery service. Ensuring children enjoy healthy, warm, mother-cooked meals at their school desks on time every day.</p>
+                <div class="footer-quote">"You Cook With Love – We Deliver With Care"</div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../about us/aboutus.html">About Us</a></li>
+                    <li><a href="../Services/Services.html">Services</a></li>
+                    <li><a href="../plans/plans.html">Plans</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Promise</h4>
+                <ul class="footer-links">
+                    <li>No 5:00 AM Morning Rush</li>
+                    <li>Fresh & Hot Food Guarantee</li>
+                    <li>Verified Delivery Fleet</li>
+                    <li>Classroom Desk Handover</li>
+                    <li>Zero Food Preparation (Home Food Only)</li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h4>Get in Touch</h4>
+                <p><i class="bi bi-telephone-fill text-gold me-2"></i> <strong>Call / WhatsApp:</strong> 92812 71759</p>
+                <p><i class="bi bi-envelope-fill text-gold me-2"></i> <strong>Email:</strong> avrdabba@gmail.com</p>
+                <p><i class="bi bi-instagram text-gold me-2"></i> <strong>Instagram:</strong> @avrdabba_hyd</p>
+                <p><i class="bi bi-geo-alt-fill text-gold me-2"></i> Hyderabad, Telangana, India</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>© 2026 AVR DABBA. All Rights Reserved. "You Cook With Love – We Deliver With Care"</p>
+                <div class="footer-social-links">
+                    <a href="https://wa.me/919281271759" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://instagram.com/avrdabba_hyd" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="tel:9281271759" aria-label="Phone"><i class="bi bi-telephone-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Navigation Component Script -->
+    <script src="../navbar.js"></script>
+    <!-- Main JavaScript -->
+    <script src="testimonials.js"></script>
+</body>
+</html>
