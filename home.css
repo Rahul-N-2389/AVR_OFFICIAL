@@ -118,6 +118,28 @@ h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 768px) {
+    .hero-exact-message {
+        top: 82px;
+        width: calc(100% - 24px);
+        min-height: 92px;
+    }
+
+    .hero-exact-message .hero-top-trust-badge {
+        font-size: 0.68rem;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+        max-width: 100%;
+    }
+
+    .hero-exact-message .hero-col-left,
+    .hero-exact-message .hero-col-right {
+        font-size: 1rem !important;
+    }
+
+    .hero-exact-message .hero-col-center {
+        font-size: 3rem !important;
+    }
+
     .main-page-heading {
         font-size: 1.85rem;
         padding-bottom: 6px;
@@ -687,6 +709,71 @@ body {
     z-index: 2;
 }
 
+/* Exact placement: keep the badge above, and reproduce the reference tagline layout. */
+.hero-exact-message {
+    position: absolute;
+    top: 88px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 660px;
+    min-height: 104px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    pointer-events: none;
+}
+
+.hero-exact-message .hero-top-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff;
+    backdrop-filter: blur(8px);
+    color: #1a1c1a;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 0 3px;
+    white-space: nowrap;
+}
+
+.hero-exact-message .hero-top-trust-badge .badge-icon {
+    color: #e4c00c;
+}
+
+.hero-exact-message .hero-title {
+    margin: 0;
+}
+
+.hero-exact-message .hero-headline-layout {
+    width: 100%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin: 0 !important;
+}
+
+.hero-exact-message .hero-col-left,
+.hero-exact-message .hero-col-right {
+    flex: 0 0 auto;
+    font-size: 2.5rem !important;
+    line-height: 1.08 !important;
+}
+
+.hero-exact-message .hero-col-center {
+    flex: 0 0 auto;
+    font-size: 6rem !important;
+    line-height: 0.88 !important;
+    letter-spacing: -2px !important;
+}
+
 .hero-content {
     margin-top: -15px;
 }
@@ -727,7 +814,7 @@ body {
     font-weight: 800 !important;
     text-align: left !important;
     line-height: 1.25 !important;
-    color: #ffffff !important;
+    color: #ec9408c9 !important;
 }
 
 .hero-col-center {
@@ -739,7 +826,7 @@ body {
 }
 
 .highlight-sky-blue {
-    color: #00b4d8 !important;
+    color: #5f07f7f3 !important;
 }
 
 .highlight-lavender {
@@ -2489,5 +2576,153 @@ body {
 
     .nav-actions .nav-cta {
         display: none;
+    }
+}
+
+
+/* =========================================================
+   HERO TAGLINE - MATCHING COLOR PAIRS
+   YOU COOK + LOVE = SAME COLOR
+   WE DELIVER + CARE = SAME COLOR
+   ========================================================= */
+
+.hero-exact-message .hero-col-left > span:first-child,
+.hero-exact-message .hero-col-right > span:first-child {
+    color: #C89020 !important;
+}
+
+.hero-exact-message .hero-col-left > span:last-child,
+.hero-exact-message .hero-col-right > span:last-child {
+    color: #1a2a5e !important;
+}
+
+/* ==========================================================================
+   FULL-SCREEN LAPTOP HERO GIF
+   Keeps AVR_home.gif covering the complete hero viewport without empty edges.
+   The image is scaled proportionally, so the GIF is not stretched/distorted.
+   ========================================================================== */
+
+html,
+body {
+    width: 100%;
+    min-width: 100%;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 82px);
+    height: calc(100vh - 82px);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: #000 url('images/AVR_home.gif') center center / cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.hero-bg-parallax {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url('images/AVR_home.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    pointer-events: none;
+    transform: none;
+}
+
+.hero-container-layout {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 100%;
+}
+
+/* Laptop screens: use the entire available viewport below the fixed header. */
+@media (min-width: 769px) {
+    .hero-section,
+    .hero-bg-parallax {
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
+
+/* Mobile: fill the complete available screen while preserving the GIF ratio. */
+@media (max-width: 768px) {
+    body {
+        padding-top: 72px;
+    }
+
+    .hero-section {
+        min-height: calc(100vh - 72px);
+        height: calc(100vh - 72px);
+        width: 100vw;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .hero-bg-parallax {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+/* ==========================================================================
+   HERO BUTTON FIX
+   Keep "Book a Dabba" and "Contact us" together in the CENTER of the GIF.
+   This override affects only the hero buttons, not the navbar buttons.
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+}
+
+.hero-cta-centered {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: auto !important;
+    max-width: calc(100vw - 40px);
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 24px !important;
+    z-index: 50 !important;
+}
+
+.hero-cta-centered .btn-hero-primary,
+.hero-cta-centered .btn-hero-secondary {
+    position: relative !important;
+    z-index: 51 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 230px !important;
+    white-space: nowrap !important;
+}
+
+/* Keep the buttons centered on smaller screens too. */
+@media (max-width: 600px) {
+    .hero-cta-centered {
+        width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 32px) !important;
+        gap: 12px !important;
+        flex-direction: column !important;
+    }
+
+    .hero-cta-centered .btn-hero-primary,
+    .hero-cta-centered .btn-hero-secondary {
+        width: min(100%, 280px) !important;
+        min-width: 0 !important;
     }
 }
