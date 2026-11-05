@@ -176,11 +176,6 @@ body {
     transition: none !important;
 }
 
-.review-bar-card.newly-added {
-    border-left-color: var(--gold-accent);
-    background: #fffbeb;
-}
-
 .card-bar-top {
     display: flex;
     justify-content: space-between;

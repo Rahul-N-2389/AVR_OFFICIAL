@@ -11,8 +11,8 @@
     --gold-accent: #d97706;
     --gold-dark: #b45309;
     --spice-red: #be123c;
-    --bg-page: #ffffff;
-    --bg-surface: #ffffff;
+    --bg-page: #797965;
+    --bg-surface: #797965;
     --text-dark: #1e293b;
     --text-muted: #64748b;
 
@@ -156,7 +156,7 @@ body {
     max-width: 100%;
     margin: 0;
     line-height: 1.8;
-    color: #334155;
+    color: #1A1A17;
     text-align: justify;
 }
 
@@ -277,7 +277,7 @@ body {
     gap: 30px;
     margin-top: 40px;
     padding: 28px 32px;
-    background: #f0fdf4;
+    background: #04221D;
     border: 2px solid #bbf7d0;
     border-left: 6px solid #16a34a;
     border-radius: 8px;
@@ -296,7 +296,7 @@ body {
     font-family: var(--font-heading);
     font-size: var(--heading-card);
     font-weight: 800;
-    color: var(--primary-navy);
+    color: green;
 
     display: flex;
     align-items: center;
@@ -310,7 +310,7 @@ body {
 .legal-text {
     font-size: 0.95rem;
     line-height: 1.65;
-    color: var(--text-dark);
+    color: white;
     margin: 0;
 }
 
@@ -527,7 +527,7 @@ body {
     font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
-    color: var(--gold-dark);
+    color: #FAC75A;
 
     text-align: center;
     text-transform: uppercase;

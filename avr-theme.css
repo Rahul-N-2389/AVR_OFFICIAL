@@ -1,0 +1,678 @@
+/* AVR DABBA official 10-colour theme. Loaded last on every site page. */
+:root {
+    --avr-light-blue: #B4D0D6;
+    --avr-teal: #2C8088;
+    --avr-rosy-granite: #888292;
+    --avr-deep-navy: #07033D;
+    --avr-evergreen: #04221D;
+    --avr-dusty-olive: #797965;
+    --avr-graphite: #322F2E;
+    --avr-dark-coffee: #392015;
+    --avr-rich-mahogany: #3E0808;
+    --avr-olive-bark: #724E04;
+    --avr-text-black: #000000;
+    --avr-text-white: #FFFFFF;
+
+    /* Map legacy component tokens onto the official palette. */
+    --primary-navy: var(--avr-deep-navy);
+    --primary-navy-dark: var(--avr-evergreen);
+    --primary-navy-light: var(--avr-teal);
+    --gold-turmeric: var(--avr-olive-bark);
+    --gold-dark: var(--avr-olive-bark);
+    --gold-light: var(--avr-light-blue);
+    --gold-accent: var(--avr-olive-bark);
+    --gold-star: var(--avr-olive-bark);
+    --spice-red: var(--avr-rich-mahogany);
+    --spice-red-dark: var(--avr-dark-coffee);
+    --bg-warm: var(--avr-light-blue);
+    --bg-warm-secondary: var(--avr-rosy-granite);
+    --bg-surface: var(--avr-light-blue);
+    --bg-white: var(--avr-light-blue);
+    --bg-page: var(--avr-dusty-olive);
+    --text-main: var(--avr-text-black);
+    --text-dark: var(--avr-text-black);
+    --text-muted: var(--avr-text-black);
+    --text-light: var(--avr-text-white);
+    --border-subtle: var(--avr-rosy-granite);
+    --border-gold: var(--avr-olive-bark);
+}
+
+body#avr-theme {
+    margin: 0;
+    background-color: var(--avr-light-blue) !important;
+    color: var(--avr-text-black) !important;
+}
+
+/* Disable legacy solid fills and gradients; retain the Home GIF and all <img> assets. */
+body#avr-theme :where(*:not(.hero-section):not(.hero-bg-parallax)) {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+body#avr-theme :where(*) {
+    color: inherit !important;
+}
+
+main { width: 100%; }
+body#avr-theme main > section {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin-inline: 0 !important;
+    background-image: none !important;
+}
+
+/* Home page horizontal bands. */
+body#avr-theme main > .hero-section { background-color: var(--avr-deep-navy) !important; background-image: url('images/AVR_home.gif') !important; color: var(--avr-text-white) !important; }
+body#avr-theme main > #about { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; border-radius: var(--radius-lg); }
+body#avr-theme main > #how-it-works { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main > .quick-actions-section { background-color: var(--avr-rosy-granite) !important; color: var(--avr-text-black) !important; }
+body#avr-theme main > #reviews { background-color: var(--avr-deep-navy) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main > .cta-banner { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+
+/* About Us page bands. */
+body#avr-theme main > .newspaper-section { background-color: var(--avr-dusty-olive) !important; color: var(--avr-text-black) !important; }
+body#avr-theme main > .founders-section { background-color: var(--avr-graphite) !important; color: var(--avr-text-white) !important; }
+
+/* Services page outer band and its original colored subsections. */
+body#avr-theme main > .services-page-section { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .services-page-section .container > .service-section-overview { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .services-page-section .container > .service-section-coverage { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .services-page-section .container > .service-section-description { background-color: var(--avr-rosy-granite) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .services-page-section .container > .service-section-delivery-process { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .services-page-section .container > .service-section-all-weather { background-color: var(--avr-dusty-olive) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .services-page-section .container > .service-section-provided-items { background-color: var(--avr-graphite) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .timeline-section { background-color: var(--avr-deep-navy) !important; color: var(--avr-text-white) !important; border-color: var(--avr-deep-navy) !important; }
+body#avr-theme .timeline-section::before { background-color: var(--avr-deep-navy) !important; background-image: none !important; border-color: var(--avr-deep-navy) !important; }
+
+/* Plans page subsection backgrounds; the Plans stylesheet makes these bands full-bleed. */
+body#avr-theme main > .plans-page-section { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .plans-page-section .container > .plans-clean-block { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .plans-page-section .container > .plan-start-dates-section { background-color: var(--avr-rosy-granite) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .plans-page-section .container > .subscription-plans-section { background-color: var(--avr-deep-navy) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .plans-page-section .container > .pamphlet-display-section-compact { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+
+/* Testimonials page and shared site chrome. */
+body#avr-theme main > .testimonials-section { background-color: var(--avr-dusty-olive) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .main-header { background-color: rgba(255, 248, 238, 0.96) !important; background-image: none !important; color: var(--avr-text-black) !important; }
+body#avr-theme .main-footer { background-color: var(--avr-graphite) !important; background-image: none !important; color: var(--avr-text-white) !important; }
+body#avr-theme .nav-dropdown { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .mobile-drawer { background-color: var(--avr-deep-navy) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .drawer-overlay, body#avr-theme .mini-modal-overlay, body#avr-theme .schedule-modal-overlay { background-color: var(--avr-rich-mahogany) !important; }
+
+/* Section heading blocks. */
+body#avr-theme main .main-page-heading,
+body#avr-theme main .section-subheading,
+body#avr-theme main .section-title,
+body#avr-theme main .section-header,
+body#avr-theme main .section-newspaper-heading,
+body#avr-theme main .timeline-header,
+body#avr-theme main .reviews-header-bar,
+body#avr-theme main .form-card-header {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: inherit !important;
+}
+body#avr-theme main :is(h1, h2, h3, h4, h5, h6) {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: inherit !important;
+}
+
+/* Reusable card and content surfaces, including JS-rendered reviews and date options. */
+body#avr-theme main :where([class*="-card"]:not([class*="-title"]):not([class*="-desc"]):not([class*="-name"]):not([class*="-role"]):not([class*="-body"]), [class*="-box"], [class*="-tile"], [class*="-chip"], .plans-table-row, .plans-table-header, .cell, .reviews-header-bar, .digital-rating-badge, .start-date-row-item, .calendar-days-grid, .start-date-options-list) {
+    background-color: var(--avr-light-blue) !important;
+    background-image: none !important;
+    color: var(--avr-text-black) !important;
+}
+body#avr-theme main :where([class*="-card"]:not([class*="-title"]):not([class*="-desc"]):not([class*="-name"]):not([class*="-role"]):not([class*="-body"]), [class*="-box"], [class*="-tile"], [class*="-chip"], .plans-table-row, .plans-table-header, .cell, .reviews-header-bar, .digital-rating-badge, .start-date-row-item, .calendar-days-grid, .start-date-options-list):nth-of-type(5n + 2) {
+    background-color: var(--avr-teal) !important;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme main :where([class*="-card"]:not([class*="-title"]):not([class*="-desc"]):not([class*="-name"]):not([class*="-role"]):not([class*="-body"]), [class*="-box"], [class*="-tile"], [class*="-chip"], .plans-table-row, .plans-table-header, .cell, .reviews-header-bar, .digital-rating-badge, .start-date-row-item, .calendar-days-grid, .start-date-options-list):nth-of-type(5n + 3) {
+    background-color: var(--avr-rosy-granite) !important;
+    color: var(--avr-text-black) !important;
+}
+body#avr-theme main :where([class*="-card"]:not([class*="-title"]):not([class*="-desc"]):not([class*="-name"]):not([class*="-role"]):not([class*="-body"]), [class*="-box"], [class*="-tile"], [class*="-chip"], .plans-table-row, .plans-table-header, .cell, .reviews-header-bar, .digital-rating-badge, .start-date-row-item, .calendar-days-grid, .start-date-options-list):nth-of-type(5n + 4) {
+    background-color: var(--avr-dark-coffee) !important;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme main :where([class*="-card"]:not([class*="-title"]):not([class*="-desc"]):not([class*="-name"]):not([class*="-role"]):not([class*="-body"]), [class*="-box"], [class*="-tile"], [class*="-chip"], .plans-table-row, .plans-table-header, .cell, .reviews-header-bar, .digital-rating-badge, .start-date-row-item, .calendar-days-grid, .start-date-options-list):nth-of-type(5n) {
+    background-color: var(--avr-olive-bark) !important;
+    color: var(--avr-text-white) !important;
+}
+
+/* Buttons, forms, badges, and feedback surfaces. */
+body#avr-theme main button,
+body#avr-theme main .btn,
+body#avr-theme main [role="button"],
+body#avr-theme .nav-actions .btn,
+body#avr-theme .drawer-close {
+    background-color: var(--avr-teal) !important;
+    background-image: none !important;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme main input,
+body#avr-theme main textarea,
+body#avr-theme main select,
+body#avr-theme .form-control-sharp {
+    background-color: var(--avr-light-blue) !important;
+    background-image: none !important;
+    color: var(--avr-text-black) !important;
+}
+body#avr-theme main .mini-modal-card,
+body#avr-theme main .feedback-form-card,
+body#avr-theme main .plans-table-box-container,
+body#avr-theme .mobile-drawer .drawer-header {
+    background-color: var(--avr-graphite) !important;
+    background-image: none !important;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme main .hero-top-trust-badge { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .nav-link.active,
+body#avr-theme main .drawer-group-title,
+body#avr-theme main .drawer-link:hover,
+body#avr-theme main .nav-dropdown a:hover { background-color: var(--avr-olive-bark) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .nav-link,
+body#avr-theme main .nav-dropdown a,
+body#avr-theme main .drawer-link { color: inherit !important; }
+body#avr-theme main .cal-day-cell.selected,
+body#avr-theme main .cal-day-cell.valid-start-date { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .cal-day-cell:disabled,
+body#avr-theme main .disabled-item { background-color: var(--avr-rosy-granite) !important; color: var(--avr-text-black) !important; }
+body#avr-theme main ::placeholder { color: var(--avr-text-black) !important; opacity: 1; }
+body#avr-theme main .newspaper-article h2::after { background-color: var(--avr-olive-bark) !important; }
+/* Palette surfaces for dynamic controls and overlays rendered outside <main>. */
+body#avr-theme .mini-modal-overlay,
+body#avr-theme .schedule-modal,
+body#avr-theme .modal-overlay,
+body#avr-theme .drawer-overlay { background-color: var(--avr-rich-mahogany) !important; background-image: none !important; }
+body#avr-theme .mini-modal-card,
+body#avr-theme .schedule-modal-content { background-color: var(--avr-graphite) !important; background-image: none !important; color: var(--avr-text-white) !important; }
+body#avr-theme button,
+body#avr-theme input,
+body#avr-theme textarea,
+body#avr-theme select { background-image: none !important; }
+body#avr-theme button { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme input,
+body#avr-theme textarea,
+body#avr-theme select { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .cal-day-cell.selected,
+body#avr-theme .cal-day-cell.valid-start-date { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .cal-day-cell:disabled,
+body#avr-theme .disabled-item { background-color: var(--avr-rosy-granite) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .nav-link.active::after { background-color: #C89020 !important; background-image: none !important; }
+body#avr-theme .founders-side-heading::after { background-color: var(--avr-olive-bark) !important; background-image: none !important; }
+/* Re-colour the remaining existing decorative and utility surfaces. */
+body#avr-theme main .section-subtitle { background-color: transparent !important; background-image: none !important; color: inherit !important; }
+body#avr-theme main .hero-section .trust-badge { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .shape-1 { background-color: var(--avr-olive-bark) !important; background-image: none !important; opacity: .2; }
+body#avr-theme main .shape-2 { background-color: var(--avr-rich-mahogany) !important; background-image: none !important; opacity: .12; }
+body#avr-theme main .service-image { background-color: var(--avr-rosy-granite) !important; }
+body#avr-theme main .badge-problem,
+body#avr-theme main .badge-solution,
+body#avr-theme main [class^="badge-"] { background-color: var(--avr-olive-bark) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .versus-badge,
+body#avr-theme main .step-icon,
+body#avr-theme main .action-icon,
+body#avr-theme main .user-avatar,
+body#avr-theme main .icon-pickup { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .icon-school { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme main .icon-alert { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .modal-calendar-col { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme main .cal-nav-btn { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .available-badge,
+body#avr-theme main .selected-date-confirmation { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .cal-day-cell.disabled-date,
+body#avr-theme main .cal-day-cell.past-date { background-color: var(--avr-rosy-granite) !important; color: var(--avr-text-black) !important; }
+body#avr-theme main .popular-ribbon,
+body#avr-theme main .date-tag,
+body#avr-theme main .blue-dist-banner { background-color: var(--avr-olive-bark) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .timeline-top-badge,
+body#avr-theme main .timeline-step-label,
+body#avr-theme main .timeline-dot { background-color: var(--avr-deep-navy) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .timeline-line { background-color: var(--avr-text-white) !important; }
+body#avr-theme main .service-feature-image-container { background-color: var(--avr-olive-bark) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .plans-features-bar { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .price-green,
+body#avr-theme main .form-control { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme main .passed-badge { background-color: var(--avr-rich-mahogany) !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .btn-horizontal-select,
+body#avr-theme main .btn-select-modal,
+body#avr-theme main .btn-submit-feedback,
+body#avr-theme main .mini-btn-whatsapp,
+body#avr-theme main .mini-btn-call { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .reviews-left-col { background-color: var(--avr-light-blue) !important; color: var(--avr-text-black) !important; }
+body#avr-theme .digital-rating-badge,
+body#avr-theme .star-rating-display { background-color: var(--avr-olive-bark) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .footer-quote { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .footer-social-links a,
+body#avr-theme .float-whatsapp { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .float-tooltip { background-color: var(--avr-deep-navy) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .btn-toggle-more,
+body#avr-theme .mini-modal-close,
+body#avr-theme .btn-link-back { background-color: var(--avr-olive-bark) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .testimonials-section .btn-toggle-more { background-color: transparent !important; }
+/* Remaining legacy class surfaces, including modal content generated outside <main>. */
+body#avr-theme main .service-badge,
+body#avr-theme main .badge,
+body#avr-theme main [class*="-badge"] { background-color: var(--avr-olive-bark) !important; background-image: none !important; color: var(--avr-text-white) !important; }
+body#avr-theme main .metric-divider { background-color: var(--avr-light-blue) !important; }
+body#avr-theme .verified-seal { background-color: var(--avr-evergreen) !important; background-image: none !important; color: var(--avr-text-white) !important; }
+body#avr-theme .trust-seal-navy { background-color: var(--avr-graphite) !important; background-image: none !important; color: var(--avr-text-white) !important; }
+body#avr-theme .modal-calendar-col { background-color: var(--avr-light-blue) !important; background-image: none !important; color: var(--avr-text-black) !important; }
+body#avr-theme .start-date-row-item { background-color: var(--avr-light-blue) !important; background-image: none !important; color: var(--avr-text-black) !important; }
+body#avr-theme .available-badge { background-color: var(--avr-evergreen) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .passed-badge { background-color: var(--avr-rich-mahogany) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .contact-date-badge { background-color: var(--avr-teal) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .nav-dropdown a:hover,
+body#avr-theme .drawer-link:hover,
+body#avr-theme .nav-link.active { background-color: var(--avr-olive-bark) !important; color: var(--avr-text-white) !important; }
+body#avr-theme .main-header .nav-link,
+body#avr-theme .main-header .nav-link:hover,
+body#avr-theme .main-header .nav-link.active {
+    color: #1a2a5e !important;
+    background: transparent !important;
+}
+/* Restore the live site's original vertical spacing while keeping the color bands continuous. */
+body#avr-theme main > .cta-banner {
+    margin-top: 60px !important;
+    position: relative;
+    isolation: isolate;
+}
+body#avr-theme main > .cta-banner::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset-block: -60px 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: var(--avr-evergreen);
+    pointer-events: none;
+}
+
+body#avr-theme .services-page-section .container > .service-section-overview { --avr-band-top-space: 0px; --avr-band-bottom-space: 50px; }
+body#avr-theme .services-page-section .container > .service-section-description { --avr-band-top-space: 40px; --avr-band-bottom-space: 50px; }
+body#avr-theme .services-page-section .container > .service-section-delivery-process { --avr-band-top-space: 40px; --avr-band-bottom-space: 70px; }
+body#avr-theme .services-page-section .container > .service-section-all-weather { --avr-band-top-space: 40px; --avr-band-bottom-space: 0px; }
+body#avr-theme .services-page-section .container > .service-section-provided-items { --avr-band-top-space: 50px; --avr-band-bottom-space: 0px; }
+body#avr-theme .services-page-section .container > [class^="service-section-"]::before {
+    inset-block-start: calc(-1 * var(--avr-band-top-space, 0px));
+    inset-block-end: calc(-1 * var(--avr-band-bottom-space, 0px));
+}
+body#avr-theme .services-page-section .timeline-section::before {
+    inset-block-start: -40px;
+    inset-block-end: -70px;
+}
+body#avr-theme .services-page-section .locations-category-section {
+    position: relative;
+    isolation: isolate;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme .services-page-section .locations-category-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset-block-start: -40px;
+    inset-block-end: -60px;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: var(--avr-teal);
+    pointer-events: none;
+}
+
+/* Restore original AVR brand identity and action button states above the palette layer. */
+body#avr-theme .main-header .brand-name { color: #1a2a5e !important; }
+body#avr-theme .main-header .brand-name .highlight-gold { color: #C89020 !important; }
+body#avr-theme .main-header .brand-tagline { color: #64748B !important; }
+body#avr-theme .main-header .brand-logo.logo-highlighted { transition: var(--transition-normal) !important; }
+body#avr-theme .main-header .brand-logo.logo-highlighted:hover { transform: none !important; opacity: .88 !important; }
+body#avr-theme main .signature-brand { color: #1a2a5e !important; }
+body#avr-theme main .signature-tagline { color: #b45309 !important; }
+
+/* WhatsApp actions retain their original green treatment and hover feedback. */
+body#avr-theme main .btn-primary,
+body#avr-theme .nav-actions .nav-cta,
+body#avr-theme main .mini-btn-whatsapp,
+body#avr-theme .float-whatsapp {
+    background-color: #25D366 !important;
+    color: #FFFFFF !important;
+}
+body#avr-theme main .btn-primary { box-shadow: 0 4px 14px rgba(37, 211, 102, .25) !important; transition: var(--transition-normal) !important; }
+body#avr-theme main .btn-primary:hover { background-color: #1eb857 !important; transform: translateY(-2px) !important; box-shadow: 0 6px 20px rgba(37, 211, 102, .35) !important; }
+body#avr-theme main .btn-hero-primary { background: #25D366 !important; color: #FFFFFF !important; border-color: #25D366 !important; transition: all .4s ease !important; }
+body#avr-theme main .btn-hero-primary:hover { background: #1eb857 !important; color: #FFFFFF !important; border-color: #1eb857 !important; }
+body#avr-theme .nav-actions .nav-cta { background: #FFFFFF !important; color: #25D366 !important; border: 2px solid #25D366 !important; box-shadow: none !important; transform: none !important; transition: background-color .2s ease, border-color .2s ease, color .2s ease !important; }
+body#avr-theme .nav-actions .nav-cta:hover { background: #25D366 !important; color: #FFFFFF !important; border-color: #25D366 !important; box-shadow: none !important; transform: none !important; }
+body#avr-theme main .mini-btn-whatsapp:hover { background-color: #1eb857 !important; color: #FFFFFF !important; }
+body#avr-theme .float-whatsapp { transition: var(--transition-normal) !important; }
+body#avr-theme .float-whatsapp:hover { background-color: #1eb857 !important; transform: scale(1.1) !important; }
+
+/* Contact buttons retain their original blue treatment and transitions. */
+body#avr-theme main .btn-outline-call,
+body#avr-theme .nav-actions .btn-outline-call {
+    background-color: #FFFFFF !important;
+    color: #0D6EFD !important;
+    border-color: #0D6EFD !important;
+    transition: all .4s ease !important;
+}
+body#avr-theme main .btn-outline-call:hover,
+body#avr-theme .nav-actions .btn-outline-call:hover { background-color: #0D6EFD !important; color: #FFFFFF !important; border-color: #0D6EFD !important; }
+body#avr-theme main .btn-hero-secondary { background: #0D6EFD !important; color: #FFFFFF !important; border-color: #0D6EFD !important; transition: all .4s ease !important; }
+body#avr-theme main .btn-hero-secondary:hover { background: #0b5ed7 !important; color: #FFFFFF !important; border-color: #0b5ed7 !important; }
+body#avr-theme main .mini-btn-call { background-color: #0D6EFD !important; color: #FFFFFF !important; }
+body#avr-theme main .mini-btn-call:hover { background-color: #0b5ed7 !important; color: #FFFFFF !important; }
+/* Restore the word-by-word slogan colors from the original banner. */
+body#avr-theme .hero-exact-message .hero-col-left > .color-group-one,
+body#avr-theme .hero-exact-message .hero-col-right > .color-group-one {
+    color: #C89020 !important;
+}
+body#avr-theme .hero-exact-message .hero-col-left > .color-group-two,
+body#avr-theme .hero-exact-message .hero-col-right > .color-group-two {
+    color: #1a2a5e !important;
+}
+body#avr-theme .hero-exact-message .hero-col-center {
+    color: #FFFFFF !important;
+}
+/* Desktop AVR navbar sizing and placement from the supplied reference. */
+@media (min-width: 1281px) {
+    body#avr-theme .main-header .nav-container {
+        max-width: 1324px;
+        padding-left: 20px;
+        padding-right: 28px;
+    }
+
+    body#avr-theme .main-header .nav-actions {
+        gap: 12px;
+    }
+
+    body#avr-theme .main-header .nav-actions > .btn {
+        box-sizing: border-box;
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        height: 62px;
+        min-height: 62px;
+        padding: 9px 18px !important;
+        border-radius: 9999px !important;
+        font-size: 0.88rem !important;
+        font-weight: 700 !important;
+        white-space: nowrap;
+    }
+
+    body#avr-theme .main-header .nav-actions > .btn-outline-call {
+        width: 145px;
+        background: #FFFFFF !important;
+        color: #0D6EFD !important;
+        border: 1.5px solid #0D6EFD !important;
+    }
+
+    body#avr-theme .main-header .nav-actions > .nav-cta {
+        width: 166px;
+        background: #FFFFFF !important;
+        color: #25D366 !important;
+        border: 2px solid #25D366 !important;
+    }
+
+    body#avr-theme .main-header .nav-actions > .btn > i {
+        font-size: 14px;
+        line-height: 1;
+    }
+}
+
+body#avr-theme .main-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+}
+/* Only the hovered or keyboard-focused navbar item opens its own dropdown. */
+body#avr-theme .main-header .nav-item.has-dropdown {
+    position: relative;
+}
+
+body#avr-theme .main-header .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -18px;
+    z-index: 1200;
+    min-width: 230px;
+    max-width: 300px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+    border-radius: 0;
+    white-space: normal;
+}
+
+body#avr-theme .main-header .nav-item.has-dropdown:hover > .nav-dropdown,
+body#avr-theme .main-header .nav-item.has-dropdown:focus-within > .nav-dropdown {
+    display: block;
+}
+
+body#avr-theme .main-header .nav-dropdown li:not(:last-child) {
+    border-bottom: 1px solid #D6D6D6;
+}
+
+body#avr-theme .main-header .nav-dropdown a {
+    display: block;
+    padding: 10px 12px;
+    color: #FFFFFF;
+    text-decoration: none;
+    white-space: normal;
+}
+
+body#avr-theme .main-header .nav-dropdown a:hover {
+    color: #FFFFFF;
+    background: var(--avr-olive-bark);
+}
+/* Restore navbar hover feedback while keeping dropdown panels themselves instant. */
+body#avr-theme .main-header .nav-link {
+    transition: color 0.2s ease !important;
+}
+
+body#avr-theme .main-header .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background: #C89020 !important;
+    transform: scaleX(0) !important;
+    transform-origin: left center;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body#avr-theme .main-header .nav-link.active::after,
+body#avr-theme .main-header .nav-link:hover::after,
+body#avr-theme .main-header .nav-link:focus-visible::after,
+body#avr-theme .main-header .nav-item.has-dropdown:hover > .nav-link::after,
+body#avr-theme .main-header .nav-item.has-dropdown:focus-within > .nav-link::after {
+    transform: scaleX(1) !important;
+}
+
+body#avr-theme .main-header .nav-link:hover,
+body#avr-theme .main-header .nav-link:focus-visible,
+body#avr-theme .main-header .nav-item.has-dropdown:hover > .nav-link {
+    color: #C89020 !important;
+}
+
+/* Restore the shared navbar button hover fills without changing their dimensions. */
+body#avr-theme .main-header .nav-actions > .btn-outline-call {
+    background-color: #FFFFFF !important;
+    color: #0D6EFD !important;
+    border-color: #0D6EFD !important;
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease !important;
+}
+
+body#avr-theme .main-header .nav-actions > .btn-outline-call:hover,
+body#avr-theme .main-header .nav-actions > .btn-outline-call:focus-visible,
+body#avr-theme .main-header .nav-actions > .btn-outline-call:active {
+    background-color: #0D6EFD !important;
+    color: #FFFFFF !important;
+    border-color: #0D6EFD !important;
+}
+
+body#avr-theme .main-header .nav-actions > .btn-outline-call:hover i,
+body#avr-theme .main-header .nav-actions > .btn-outline-call:focus-visible i,
+body#avr-theme .main-header .nav-actions > .btn-outline-call:active i {
+    color: #FFFFFF !important;
+}
+
+body#avr-theme .main-header .nav-actions > .nav-cta {
+    background-color: #FFFFFF !important;
+    color: #25D366 !important;
+    border-color: #25D366 !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+}
+
+body#avr-theme .main-header .nav-actions > .nav-cta:hover,
+body#avr-theme .main-header .nav-actions > .nav-cta:focus-visible,
+body#avr-theme .main-header .nav-actions > .nav-cta:active {
+    background-color: #25D366 !important;
+    color: #FFFFFF !important;
+    border-color: #25D366 !important;
+}
+
+body#avr-theme .main-header .nav-actions > .nav-cta:hover i,
+body#avr-theme .main-header .nav-actions > .nav-cta:focus-visible i,
+body#avr-theme .main-header .nav-actions > .nav-cta:active i {
+    color: #FFFFFF !important;
+}
+
+/* Plan start-date tiles and their confirmation actions. */
+body#avr-theme .plans-page-section .date-badge-num {
+    background: transparent !important;
+    background-image: none !important;
+    color: var(--gold-accent) !important;
+}
+
+body#avr-theme main .stepped-date-card.scroll-reveal {
+    transition: opacity 0.7s ease var(--scroll-reveal-delay, 0ms),
+        translate 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--scroll-reveal-delay, 0ms),
+        transform 0.75s ease-in-out,
+        box-shadow 0.45s ease-in-out !important;
+}
+
+body#avr-theme .plans-page-section .btn-select-modal {
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    transition: background-color 0.25s ease, color 0.25s ease !important;
+}
+
+body#avr-theme .plans-page-section .btn-select-modal:hover,
+body#avr-theme .plans-page-section .btn-select-modal:focus-visible,
+body#avr-theme .plans-page-section .btn-select-modal:active {
+    background: #1eb857 !important;
+    color: #FFFFFF !important;
+}
+
+body#avr-theme .contact-modal-card .mini-btn-whatsapp,
+body#avr-theme .contact-modal-card .mini-btn-call {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 18px !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease !important;
+}
+
+body#avr-theme .contact-modal-card .mini-btn-whatsapp {
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #25D366 !important;
+}
+
+body#avr-theme .contact-modal-card .mini-btn-call {
+    background: #0D6EFD !important;
+    color: #FFFFFF !important;
+    border: 1.5px solid #0D6EFD !important;
+}
+
+body#avr-theme .contact-modal-card .mini-btn-whatsapp i,
+body#avr-theme .contact-modal-card .mini-btn-call i {
+    color: #FFFFFF !important;
+}
+
+body#avr-theme .contact-modal-card .mini-btn-whatsapp:hover,
+body#avr-theme .contact-modal-card .mini-btn-whatsapp:focus-visible,
+body#avr-theme .contact-modal-card .mini-btn-whatsapp:active {
+    background: #1eb857 !important;
+    color: #FFFFFF !important;
+    border-color: #1eb857 !important;
+}
+
+body#avr-theme .contact-modal-card .mini-btn-call:hover,
+body#avr-theme .contact-modal-card .mini-btn-call:focus-visible,
+body#avr-theme .contact-modal-card .mini-btn-call:active {
+    background: #0b5ed7 !important;
+    color: #FFFFFF !important;
+    border-color: #0b5ed7 !important;
+}
+
+body#avr-theme .contact-modal-card .mini-btn-whatsapp:hover i,
+body#avr-theme .contact-modal-card .mini-btn-whatsapp:focus-visible i,
+body#avr-theme .contact-modal-card .mini-btn-whatsapp:active i,
+body#avr-theme .contact-modal-card .mini-btn-call:hover i,
+body#avr-theme .contact-modal-card .mini-btn-call:focus-visible i,
+body#avr-theme .contact-modal-card .mini-btn-call:active i { color: #FFFFFF !important; }
+
+@media (min-width: 1281px) {
+    body#avr-theme .contact-modal-card .mini-btn-whatsapp,
+    body#avr-theme .contact-modal-card .mini-btn-call {
+        height: 62px;
+    }
+}
+
+@media (max-width: 479px) {
+    body#avr-theme .contact-modal-card .mini-btn-whatsapp,
+    body#avr-theme .contact-modal-card .mini-btn-call {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
+
+body#avr-theme .main-header .nav-dropdown a {
+    transition: color 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* Give cards and containers a distinct palette color when they match their section. */
+body#avr-theme main > #about .about-grid > .problem-card {
+    background-color: var(--avr-dusty-olive) !important;
+    color: var(--avr-text-black) !important;
+}
+body#avr-theme main > #about .pillars-grid > .pillar-box:first-of-type {
+    background-color: var(--avr-rosy-granite) !important;
+    color: var(--avr-text-black) !important;
+}
+body#avr-theme main > #how-it-works .steps-wrapper > .step-card:last-child {
+    background-color: var(--avr-graphite) !important;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme .locations-category-section .marquee-group > .location-card-sharp:nth-of-type(2) {
+    background-color: var(--avr-deep-navy) !important;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme .plans-page-section .plan-start-dates-section .stepped-date-card.step-card-3 {
+    background-color: var(--avr-dusty-olive) !important;
+    color: var(--avr-text-black) !important;
+}
+body#avr-theme .testimonials-section .reviews-left-col .reviews-header-bar {
+    background-color: var(--avr-teal) !important;
+    color: var(--avr-text-white) !important;
+}
+body#avr-theme .testimonials-section .reviews-list-container > .review-bar-card:first-child {
+    background-color: var(--avr-dark-coffee) !important;
+    color: var(--avr-text-white) !important;
+}

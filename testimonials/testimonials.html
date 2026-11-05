@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="../home.css">
     <!-- Testimonials Page Stylesheet -->
     <link rel="stylesheet" href="testimonials.css">
+    <link rel="stylesheet" href="../avr-theme.css">
 </head>
-<body>
+<body id="avr-theme">
 
     <!-- Shared Common Navbar Component -->
     <div id="navbar-component"></div>
@@ -37,70 +38,70 @@
                 <div class="testimonials-side-by-side">
                     
                     <!-- Left Side: Reviews List & Digital Rating Header -->
-                    <div class="reviews-left-col">
+                    <div class="reviews-left-col" id="parent-reviews">
                         <div class="reviews-header-bar">
                             <div class="reviews-header-title">
                                 <h2 class="section-subheading"><i class="bi bi-chat-square-quote-fill text-gold me-2"></i>Parent Reviews</h2>
                             </div>
                             <!-- Digital Rating Badge in Top Right Corner of Reviews -->
-                            <div class="digital-rating-badge" id="digitalRatingBadge">
-                                <span class="rating-number" id="avgRatingValue">5.0</span>
+                            <div class="digital-rating-badge" id="digital-rating-badge">
+                                <span class="rating-number" id="average-rating-value">5.0</span>
                                 <span class="rating-max">/ 5.0</span>
-                                <div class="rating-stars" id="avgRatingStars">
+                                <div class="rating-stars" id="average-rating-stars">
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
                                 </div>
-                                <span class="reviews-total" id="reviewsCountLabel">(4 reviews)</span>
+                                <span class="reviews-total" id="reviews-count-label">(4 reviews)</span>
                             </div>
                         </div>
 
                         <!-- Bar Rectangle Type Reviews Container -->
-                        <div class="reviews-list-container" id="reviewsContainer">
+                        <div class="reviews-list-container" id="reviews-container">
                             <!-- Dynamic Review Bar Cards Loaded via testimonials.js -->
                         </div>
                     </div>
 
                     <!-- Right Side: Professional Feedback Page / Form -->
-                    <div class="feedback-right-col" id="feedbackFormSection">
+                    <div class="feedback-right-col">
                         <div class="feedback-form-card">
                             <div class="form-card-header">
-                                <h2 class="section-subheading"><i class="bi bi-pencil-square text-gold me-2"></i>Give Your Feedback</h2>
+                                <h2 class="section-subheading" id="give-feedback"><i class="bi bi-pencil-square text-gold me-2"></i>Give Your Feedback</h2>
                                 <p class="form-subtitle">Share your experience with AVR DABBA school lunch delivery.</p>
                             </div>
 
-                            <form id="feedbackForm">
+                            <form id="feedback-form">
                                 <!-- Interactive 5-Star Selection -->
                                 <div class="form-group">
                                     <label class="form-label">Overall Service Rating <span class="required-star">*</span></label>
-                                    <div class="star-rating-input" id="starRatingInput">
+                                    <div class="star-rating-input" id="star-rating-input">
                                         <i class="bi bi-star star-icon" data-value="1"></i>
                                         <i class="bi bi-star star-icon" data-value="2"></i>
                                         <i class="bi bi-star star-icon" data-value="3"></i>
                                         <i class="bi bi-star star-icon" data-value="4"></i>
                                         <i class="bi bi-star star-icon" data-value="5"></i>
                                     </div>
-                                    <input type="hidden" id="ratingValue" value="0">
+                                    <input type="hidden" id="rating-value" value="0">
                                 </div>
 
                                 <!-- Parent Name Input -->
                                 <div class="form-group">
-                                    <label for="userName" class="form-label">Your Full Name <span class="required-star">*</span></label>
-                                    <input type="text" id="userName" class="form-control-sharp" placeholder="e.g. S. Radhika" required>
+                                    <label for="user-name" class="form-label">Your Full Name <span class="required-star">*</span></label>
+                                    <input type="text" id="user-name" class="form-control-sharp" placeholder="e.g. S. Radhika" required>
                                 </div>
 
                                 <!-- Relationship / Role Input -->
                                 <div class="form-group">
-                                    <label for="userRole" class="form-label">School / Relationship Context</label>
-                                    <input type="text" id="userRole" class="form-control-sharp" placeholder="e.g. Parent of Rohan (DPS Gachibowli)">
+                                    <label for="user-role" class="form-label">School / Relationship Context</label>
+                                    <input type="text" id="user-role" class="form-control-sharp" placeholder="e.g. Parent of Rohan (DPS Gachibowli)">
                                 </div>
 
                                 <!-- Feedback Message Text Area -->
                                 <div class="form-group">
-                                    <label for="userFeedback" class="form-label">Your Review <span class="required-star">*</span></label>
-                                    <textarea id="userFeedback" class="form-control-sharp" rows="5" placeholder="Tell us about your experience with AVR DABBA lunch delivery..." required></textarea>
+                                    <label for="user-feedback" class="form-label">Your Review <span class="required-star">*</span></label>
+                                    <textarea id="user-feedback" class="form-control-sharp" rows="5" placeholder="Tell us about your experience with AVR DABBA lunch delivery..." required></textarea>
                                 </div>
 
                                 <!-- Submit Button -->
@@ -176,5 +177,6 @@
     <script src="../navbar.js"></script>
     <!-- Main JavaScript -->
     <script src="testimonials.js"></script>
+    <script src="../scroll-reveal.js"></script>
 </body>
 </html>

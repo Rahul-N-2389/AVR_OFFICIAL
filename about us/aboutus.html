@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="../home.css">
     <!-- About Us Page Stylesheet -->
     <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="../avr-theme.css">
 </head>
-<body>
+<body id="avr-theme">
 
     <!-- Shared Common Navbar Component -->
     <div id="navbar-component"></div>
@@ -29,7 +30,7 @@
             <div class="container newspaper-article-container">
                 <h1 class="main-page-heading">ABOUT US</h1>
                 <article class="newspaper-article clearfix">
-                    <h2 class="section-subheading">AVR Service Story</h2>
+                    <h2 class="section-subheading" id="service-story" style="color:rgb(193, 123, 17)"> &nbsp;AVR Service Story</h2>
 
                     <!-- Floated Logo Image (Left) -->
                     <div class="float-box-left">
@@ -76,7 +77,7 @@
         <section class="founders-section">
             <div class="container">
                 <div class="section-newspaper-heading text-start">
-                    <h2 class="section-subheading"><i class="bi bi-people-fill me-2 text-gold"></i>Founders of AVR DABBA</h2>
+                    <h2 class="section-subheading" id="founders" style="color:white"></i>Founders of AVR DABBA</h2>
                 </div>
 
                 <!-- Founder 1: Abinash Pamula -->
@@ -125,8 +126,7 @@
                 <div class="founder-block clearfix">
                     <div class="float-box-left">
                         <div class="borderless-img-wrap">
-                            <img src="../images/rahul.jpg" alt="Rahul Neelam - Founder of AVR DABBA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="founder-fallback-avatar" style="display:none;">
+                            <div class="founder-fallback-avatar" style="display:flex;">
                                 <i class="bi bi-person-fill fs-1"></i>
                                 <span>Rahul Neelam</span>
                             </div>
@@ -204,72 +204,10 @@
         </div>
     </footer>
 
-    <!-- Booking Modal Popup -->
-    <div class="modal-backdrop" id="scheduleModal">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <div class="modal-title-group">
-                    <h3 class="modal-title"><i class="fa-solid fa-box-open text-gold"></i> Schedule Lunch Pickup</h3>
-                    <p class="modal-subtitle">Fill in details for your child's school lunch box pickup.</p>
-                </div>
-                <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="scheduleForm">
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="parentName">Parent Full Name <span class="text-danger">*</span></label>
-                            <input type="text" id="parentName" class="form-control" placeholder="e.g. S. Radhika" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="parentPhone">Phone Number (WhatsApp) <span class="text-danger">*</span></label>
-                            <input type="tel" id="parentPhone" class="form-control" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="studentName">Child / Student Name <span class="text-danger">*</span></label>
-                            <input type="text" id="studentName" class="form-control" placeholder="e.g. Master Rohan" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="classSection">Class & Section <span class="text-danger">*</span></label>
-                            <input type="text" id="classSection" class="form-control" placeholder="e.g. Class 6 - B" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="schoolName">School Name & Branch <span class="text-danger">*</span></label>
-                            <input type="text" id="schoolName" class="form-control" placeholder="e.g. DPS Gachibowli" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="planSelect">Selected Plan <span class="text-danger">*</span></label>
-                            <select id="planSelect" class="form-control" required>
-                                <option value="Monthly School Pass (₹899/mo)">Monthly School Pass (₹899/mo) - Recommended</option>
-                                <option value="Single Day Flexi (₹49/day)">Single Day Flexi (₹49/day)</option>
-                                <option value="Term Pass (₹2399/quarter)">Term Pass (₹2399/quarter)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pickupAddress">Home Pickup Address & Landmark <span class="text-danger">*</span></label>
-                        <textarea id="pickupAddress" class="form-control" rows="2" placeholder="House No, Apartment/Gated Community, Area, Pincode..." required></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" id="modalCancelBtn">Cancel</button>
-                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Submit Pickup Request</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Shared Navigation Component Script -->
     <script src="../navbar.js"></script>
     <!-- Main JavaScript -->
     <script src="aboutus.js"></script>
+    <script src="../scroll-reveal.js"></script>
 </body>
 </html>

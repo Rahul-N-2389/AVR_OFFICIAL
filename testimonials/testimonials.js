@@ -5,21 +5,21 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const reviewsContainer = document.getElementById('reviewsContainer');
-    const feedbackForm = document.getElementById('feedbackForm');
-    const starContainer = document.getElementById('starRatingInput');
-    const ratingValueInput = document.getElementById('ratingValue');
+    const reviewsContainer = document.getElementById('reviews-container');
+    const feedbackForm = document.getElementById('feedback-form');
+    const starContainer = document.getElementById('star-rating-input');
+    const ratingValueInput = document.getElementById('rating-value');
     let currentRating = 0;
 
     // ----------------------------------------------------------------------
     // 1. Interactive 5-Star Rating Control
     // ----------------------------------------------------------------------
     if (starContainer) {
-        const stars = starContainer.querySelectorAll('.star-icon');
+        const ratingStars = starContainer.querySelectorAll('.star-icon');
 
         function updateStars(rating) {
-            stars.forEach((star, index) => {
-                if (index < rating) {
+            ratingStars.forEach((star, starIndex) => {
+                if (starIndex < rating) {
                     star.classList.remove('bi-star');
                     star.classList.add('bi-star-fill', 'active');
                 } else {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateStars(0);
 
-        stars.forEach(star => {
+        ratingStars.forEach(star => {
             star.addEventListener('mouseenter', () => {
                 const hoverRating = parseInt(star.getAttribute('data-value'));
                 updateStars(hoverRating);
@@ -52,29 +52,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // 2. Render Review Bar Card with 120-Char Truncation
     // ----------------------------------------------------------------------
-    function renderReviewCard(review, isNew = false) {
+    function renderReviewCard(review) {
         const card = document.createElement('div');
-        card.className = `review-bar-card reveal-on-scroll ${isNew ? 'newly-added' : ''}`;
+        card.className = 'review-bar-card reveal-on-scroll';
 
         let starsHTML = '';
-        for (let i = 1; i <= 5; i++) {
-            if (i <= review.rating) {
+        for (let starNumber = 1; starNumber <= 5; starNumber++) {
+            if (starNumber <= review.rating) {
                 starsHTML += '<i class="bi bi-star-fill me-1"></i>';
             } else {
                 starsHTML += '<i class="bi bi-star me-1"></i>';
             }
         }
 
-        const dateStr = review.date ? new Date(review.date).toLocaleDateString('en-IN', {
+        const formattedReviewDate = review.date ? new Date(review.date).toLocaleDateString('en-IN', {
             year: 'numeric',
             month: 'short',
             day: 'numeric'
         }) : 'Recently';
 
         const fullText = review.feedback || '';
-        const limit = 120;
-        const needsTruncation = fullText.length > limit;
-        const truncatedText = needsTruncation ? fullText.substring(0, limit) + '...' : fullText;
+        const maximumReviewLength = 120;
+        const needsTruncation = fullText.length > maximumReviewLength;
+        const truncatedText = needsTruncation ? fullText.substring(0, maximumReviewLength) + '...' : fullText;
 
         card.innerHTML = `
             <div class="card-bar-top">
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="card-bar-meta">
                     <div class="star-rating-display">${starsHTML}</div>
-                    <span class="author-date">${dateStr}</span>
+                    <span class="author-date">${formattedReviewDate}</span>
                 </div>
             </div>
             <div class="card-bar-body">
@@ -94,18 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         if (needsTruncation) {
-            const toggleBtn = card.querySelector('.btn-toggle-more');
-            const reviewTextP = card.querySelector('.review-text');
+            const toggleButton = card.querySelector('.btn-toggle-more');
+            const reviewText = card.querySelector('.review-text');
             let isExpanded = false;
 
-            toggleBtn.addEventListener('click', () => {
+            toggleButton.addEventListener('click', () => {
                 isExpanded = !isExpanded;
                 if (isExpanded) {
-                    reviewTextP.innerHTML = `&ldquo;${escapeHTML(fullText)}&rdquo;`;
-                    toggleBtn.innerHTML = 'Show Less <i class="bi bi-chevron-up"></i>';
+                    reviewText.innerHTML = `&ldquo;${escapeHTML(fullText)}&rdquo;`;
+                    toggleButton.innerHTML = 'Show Less <i class="bi bi-chevron-up"></i>';
                 } else {
-                    reviewTextP.innerHTML = `&ldquo;${escapeHTML(truncatedText)}&rdquo;`;
-                    toggleBtn.innerHTML = 'Read More <i class="bi bi-chevron-down"></i>';
+                    reviewText.innerHTML = `&ldquo;${escapeHTML(truncatedText)}&rdquo;`;
+                    toggleButton.innerHTML = 'Read More <i class="bi bi-chevron-down"></i>';
                 }
             });
         }
@@ -113,10 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    function escapeHTML(str) {
-        if (!str) return '';
-        return str.replace(/[&<>'"]/g, 
-            tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+    function escapeHTML(text) {
+        if (!text) return '';
+        return text.replace(/[&<>'"]/g,
+            character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character] || character)
         );
     }
 
@@ -124,33 +124,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Update Digital Average Rating Badge
     // ----------------------------------------------------------------------
     function updateDigitalRatingBadge(allReviews) {
-        const avgRatingValEl = document.getElementById('avgRatingValue');
-        const avgRatingStarsEl = document.getElementById('avgRatingStars');
-        const reviewsCountLabelEl = document.getElementById('reviewsCountLabel');
+        const averageRatingValueElement = document.getElementById('average-rating-value');
+        const averageRatingStarsElement = document.getElementById('average-rating-stars');
+        const reviewCountLabelElement = document.getElementById('reviews-count-label');
 
         if (!allReviews || allReviews.length === 0) {
-            if (avgRatingValEl) avgRatingValEl.textContent = '5.0';
-            if (reviewsCountLabelEl) reviewsCountLabelEl.textContent = '(0 reviews)';
+            if (averageRatingValueElement) averageRatingValueElement.textContent = '5.0';
+            if (reviewCountLabelElement) reviewCountLabelElement.textContent = '(0 reviews)';
             return;
         }
 
-        const totalRatingSum = allReviews.reduce((sum, r) => sum + (parseFloat(r.rating) || 5), 0);
-        const avgRating = (totalRatingSum / allReviews.length).toFixed(1);
+        const totalRating = allReviews.reduce((ratingSum, review) => ratingSum + (parseFloat(review.rating) || 5), 0);
+        const averageRating = (totalRating / allReviews.length).toFixed(1);
 
-        if (avgRatingValEl) avgRatingValEl.textContent = avgRating;
-        if (reviewsCountLabelEl) reviewsCountLabelEl.textContent = `(${allReviews.length} reviews)`;
+        if (averageRatingValueElement) averageRatingValueElement.textContent = averageRating;
+        if (reviewCountLabelElement) reviewCountLabelElement.textContent = `(${allReviews.length} reviews)`;
 
-        if (avgRatingStarsEl) {
+        if (averageRatingStarsElement) {
             let starsHTML = '';
-            const numAvg = Math.round(parseFloat(avgRating));
-            for (let i = 1; i <= 5; i++) {
-                if (i <= numAvg) {
+            const roundedAverageRating = Math.round(parseFloat(averageRating));
+            for (let starNumber = 1; starNumber <= 5; starNumber++) {
+                if (starNumber <= roundedAverageRating) {
                     starsHTML += '<i class="bi bi-star-fill"></i>';
                 } else {
                     starsHTML += '<i class="bi bi-star"></i>';
                 }
             }
-            avgRatingStarsEl.innerHTML = starsHTML;
+            averageRatingStarsElement.innerHTML = starsHTML;
         }
     }
 
@@ -164,8 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 defaultReviews = await response.json();
             }
-        } catch (e) {
-            console.log('Using default static reviews');
+        } catch (error) {
+            console.error('Failed to load testimonials.', error);
         }
 
         let localReviews = [];
@@ -174,8 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (stored) {
                 localReviews = JSON.parse(stored);
             }
-        } catch (e) {
-            console.error(e);
+        } catch (error) {
+            console.error('Failed to read saved testimonials.', error);
         }
 
         const allReviews = [...localReviews, ...defaultReviews];
@@ -196,17 +196,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Dynamic Form Submission (Add Review & Save to LocalStorage)
     // ----------------------------------------------------------------------
     if (feedbackForm) {
-        feedbackForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        feedbackForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
             if (currentRating === 0) {
                 alert('Please select a star rating (1 to 5 stars) before submitting your review.');
                 return;
             }
 
-            const nameInput = document.getElementById('userName').value.trim();
-            const roleInput = document.getElementById('userRole').value.trim();
-            const feedbackInput = document.getElementById('userFeedback').value.trim();
+            const nameInput = document.getElementById('user-name').value.trim();
+            const roleInput = document.getElementById('user-role').value.trim();
+            const feedbackInput = document.getElementById('user-feedback').value.trim();
 
             if (!nameInput || !feedbackInput) return;
 
@@ -224,7 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const stored = localStorage.getItem('user_testimonials');
                 if (stored) localReviews = JSON.parse(stored);
-            } catch (e) {}
+            } catch (error) {
+                console.error('Failed to read saved testimonials before submission.', error);
+            }
 
             localReviews.unshift(newReview);
             localStorage.setItem('user_testimonials', JSON.stringify(localReviews));
@@ -238,9 +240,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (ratingValueInput) ratingValueInput.value = 0;
             if (starContainer) {
                 const stars = starContainer.querySelectorAll('.star-icon');
-                stars.forEach(s => {
-                    s.classList.remove('bi-star-fill', 'active');
-                    s.classList.add('bi-star');
+                stars.forEach(star => {
+                    star.classList.remove('bi-star-fill', 'active');
+                    star.classList.add('bi-star');
                 });
             }
 
@@ -256,11 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
         if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries, obs) => {
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        obs.unobserve(entry.target);
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
@@ -268,34 +270,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 rootMargin: '0px 0px -20px 0px'
             });
 
-            revealElements.forEach(el => observer.observe(el));
+            revealElements.forEach(element => observer.observe(element));
         } else {
-            revealElements.forEach(el => el.classList.add('visible'));
+            revealElements.forEach(element => element.classList.add('visible'));
         }
     }
 
     // Initialize Page
     loadTestimonials();
 
-    // Mobile Drawer Handlers
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerOverlay = document.getElementById('drawerOverlay');
-
-    function openDrawer() {
-        if (mobileDrawer) mobileDrawer.classList.add('open');
-        if (drawerOverlay) drawerOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeDrawer() {
-        if (mobileDrawer) mobileDrawer.classList.remove('open');
-        if (drawerOverlay) drawerOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
-    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
-    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
 });

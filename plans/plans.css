@@ -53,8 +53,43 @@ body {
 }
 
 .plans-page-section {
-    padding: 40px 0 80px 0;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin-inline: 0;
+    padding: 0;
     background-color: #ffffff;
+    overflow-x: clip;
+}
+
+/* Keep the Plans page sections in the intended vertical sequence. */
+body#avr-theme .plans-page-section > .container {
+    display: flex;
+    flex-direction: column;
+}
+
+body#avr-theme .plans-page-section > .container > .plans-clean-block { order: 0; }
+body#avr-theme .plans-page-section > .container > .plan-start-dates-section { order: 1; }
+body#avr-theme .plans-page-section > .container > .subscription-plans-section { order: 2; }
+body#avr-theme .plans-page-section > .container > .pamphlet-display-section-compact { order: 3; }
+
+/* Let each colored Plans band span the viewport while preserving the existing
+   1400px centered content area and its 36px inner gutters. */
+body#avr-theme .plans-page-section .container > :where(
+    .plans-clean-block,
+    .subscription-plans-section,
+    .plan-start-dates-section,
+    .pamphlet-display-section-compact
+) {
+    width: 100vw;
+    max-width: none;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    margin-left: 0;
+    transform: translateX(-50%);
+    padding-right: max(36px, calc((100vw - 1400px) / 2 + 36px));
+    padding-left: max(36px, calc((100vw - 1400px) / 2 + 36px));
 }
 
 .section-title {
@@ -71,17 +106,19 @@ body {
    1. Clean Prose Block (Matching Services Page)
    -------------------------------------------------------------------------- */
 .plans-clean-block {
-    margin-bottom: 60px;
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 48px;
 }
 
 .plan-start-dates-section {
-    margin-top: 65px;
-    margin-bottom: 95px;
+    margin: 0 !important;
+    padding-bottom: 72px;
 }
 
 .subscription-plans-section {
-    margin-top: 85px;
-    margin-bottom: 85px;
+    margin: 0 !important;
+    padding-bottom: 48px;
 }
 
 .service-prose-para {
@@ -125,7 +162,7 @@ body {
     border: 2px solid #cbd5e1;
     border-radius: 0 !important;
     overflow: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     box-shadow: none !important;
 }
 
@@ -216,7 +253,7 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: none !important;
+    transition: background-color 0.25s ease, color 0.25s ease !important;
     transform: none !important;
     box-shadow: none !important;
     width: 100%;
@@ -233,7 +270,7 @@ body {
    3. Plan Start Dates Section (3 Stepped Overlapping Boxes)
    -------------------------------------------------------------------------- */
 .plan-start-dates-section {
-    margin-top: 50px;
+    margin: 0 !important;
 }
 
 .stepped-dates-container {
@@ -250,11 +287,12 @@ body {
 .stepped-date-card {
     position: absolute;
     width: 320px;
+    box-sizing: border-box;
     background: #ffffff;
     border: 3px solid #0f172a;
     padding: 24px 28px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, z-index 0.35s ease;
+    transition: transform 0.75s ease-in-out, box-shadow 0.45s ease-in-out;
     cursor: pointer;
 }
 
@@ -322,9 +360,9 @@ body {
    4. Side-by-Side Compact Pamphlet Cards (Sharp Edges, Reduced Size)
    -------------------------------------------------------------------------- */
 .pamphlet-display-section-compact {
-    margin-top: 40px;
+    margin-top: 0;
     padding-top: 40px;
-    border-top: 2px dashed #e2e8f0;
+    padding-bottom: 80px;
 }
 
 .pamphlet-grid-compact {
@@ -693,6 +731,9 @@ body {
 .mini-modal-actions {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
     gap: 12px;
     margin-top: 20px;
 }
@@ -752,6 +793,33 @@ body {
     }
 }
 
+@media (max-width: 1024px) {
+    .stepped-dates-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 320px));
+        justify-content: center;
+        gap: 20px;
+        min-height: 0;
+    }
+
+    .stepped-date-card {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 640px) {
+    .stepped-dates-container {
+        grid-template-columns: minmax(0, 1fr);
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
 /* Price values styled like compact non-clickable button cards */
 .cell-price-box .price-green {
     display: inline-flex;
@@ -776,10 +844,20 @@ body {
 }
 
 .btn-select-modal:hover {
-    background: #20b957 !important;
+    background: #1eb857 !important;
     color: #ffffff !important;
     transform: none !important;
     box-shadow: none !important;
+}
+
+.contact-modal-card .btn-link-back {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 479px) {
+    .mini-modal-actions {
+        flex-direction: column;
+    }
 }
 
 /* Step 2 Contact Modal Styles */
@@ -816,5 +894,3 @@ body {
 .btn-link-back:hover {
     color: #0f172a;
 }
-
-

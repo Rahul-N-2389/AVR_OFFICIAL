@@ -22,8 +22,9 @@
         }
     </style>
 
+    <link rel="stylesheet" href="avr-theme.css">
 </head>
-<body>
+<body id="avr-theme">
 
     <!-- Shared Common Navbar Component -->
     <div id="navbar-component"></div>
@@ -33,7 +34,7 @@
 
         <!-- Hero Section -->
         <section class="hero-section" id="home">
-            <div class="hero-bg-parallax" id="heroBgParallax"></div>
+            <div class="hero-bg-parallax" id="hero-background-parallax"></div>
             <div class="hero-bg-shapes">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
@@ -44,7 +45,7 @@
                     <span class="badge-icon"><i class="bi bi-shield-check me-2"></i></span>
                     <span>Government Udyam Registered &amp; Trusted Delivery</span>
                 </div>
-                <h1 class="hero-title hero-headline-layout hero-copyable-text">
+                <h1 class="hero-title hero-headline-layout hero-copyable-text hero-bounce-text">
                     <span class="hero-col-left">
                         <span class="color-group-one">YOU COOK</span>
                         <span class="color-group-two">WE DELIVER</span>
@@ -233,7 +234,7 @@
                     <h2 class="section-title">WHAT PARENTS SAY ABOUT US</h2>
                 </div>
 
-                <div class="testimonial-grid">
+                <div class="testimonial-grid" id="home-testimonial-grid" aria-live="polite">
                     <div class="testimonial-card">
                         <div class="stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -285,9 +286,6 @@
                 <h2>GIVE YOUR CHILD FRESH HOMEMADE MEALS & GIVE YOURSELF STRESS-FREE MORNINGS</h2>
                 <p>Join hundreds of smart parents in Hyderabad today. Registration takes less than 2 minutes!</p>
                 <div class="cta-banner-buttons">
-                    <button class="btn btn-gold btn-lg open-modal-btn" data-modal="scheduleModal">
-                        <i class="fa-solid fa-calendar-plus"></i> Schedule Pickup Now
-                    </button>
                     <a href="tel:9281271759" class="btn btn-outline-light btn-lg">
                         <i class="fa-solid fa-headset"></i> Talk to Us: 9281271759
                     </a>
@@ -315,11 +313,11 @@
                 <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="Services/Services.html">Services</a></li>
                     <li><a href="#how-it-works">How it works</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="plans/plans.html#plan-prices">Pricing</a></li>
                     <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#how-it-works">FAQ</a></li>
                 </ul>
             </div>
 
@@ -361,81 +359,12 @@
             <i class="fa-brands fa-whatsapp"></i>
             <span class="float-tooltip">Chat with Us</span>
         </a>
-        <button class="float-btn float-schedule open-modal-btn" data-modal="scheduleModal" aria-label="Schedule Lunch Delivery">
-            <i class="fa-solid fa-calendar-check"></i>
-            <span class="float-tooltip">Book Lunch Delivery</span>
-        </button>
     </div>
-
-    <!-- Booking Modal Popup -->
-    <div class="modal-backdrop" id="scheduleModal">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <div class="modal-title-group">
-                    <h3 class="modal-title"><i class="fa-solid fa-box-open text-gold"></i> SCHEDULE LUNCH PICKUP</h3>
-                    <p class="modal-subtitle">Fill in details for your child's school lunch box pickup.</p>
-                </div>
-                <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="scheduleForm">
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="parentName">Parent Full Name <span class="text-danger">*</span></label>
-                            <input type="text" id="parentName" class="form-control" placeholder="e.g. S. Radhika" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="parentPhone">Phone Number (WhatsApp) <span class="text-danger">*</span></label>
-                            <input type="tel" id="parentPhone" class="form-control" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="studentName">Child / Student Name <span class="text-danger">*</span></label>
-                            <input type="text" id="studentName" class="form-control" placeholder="e.g. Master Rohan" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="classSection">Class & Section <span class="text-danger">*</span></label>
-                            <input type="text" id="classSection" class="form-control" placeholder="e.g. Class 6 - B" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="schoolName">School Name & Branch <span class="text-danger">*</span></label>
-                            <input type="text" id="schoolName" class="form-control" placeholder="e.g. DPS Gachibowli" required>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="planSelect">Selected Plan <span class="text-danger">*</span></label>
-                            <select id="planSelect" class="form-control" required>
-                                <option value="Monthly School Pass (₹899/mo)">Monthly School Pass (₹899/mo) - Recommended</option>
-                                <option value="Single Day Flexi (₹49/day)">Single Day Flexi (₹49/day)</option>
-                                <option value="Term Pass (₹2399/quarter)">Term Pass (₹2399/quarter)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pickupAddress">Home Pickup Address & Landmark <span class="text-danger">*</span></label>
-                        <textarea id="pickupAddress" class="form-control" rows="2" placeholder="House No, Apartment/Gated Community, Area, Pincode..." required></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" id="modalCancelBtn">Cancel</button>
-                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Submit Pickup Request</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toastContainer" class="toast-container"></div>
 
     <!-- Shared Navigation Component Script -->
     <script src="navbar.js"></script>
     <!-- Main JavaScript -->
     <script src="home.js"></script>
+    <script src="scroll-reveal.js"></script>
 </body>
 </html>

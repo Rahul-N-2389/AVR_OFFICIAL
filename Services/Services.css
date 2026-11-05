@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
 
 :root {
-    --primary-navy: #0f172a;
+    --primary-navy: #0f2a13;
     --gold-accent: #d97706;
     --gold-star: #f59e0b;
     --spice-red: #be123c;
@@ -38,7 +38,7 @@ h2, h3, h4, h5, h6,
 .subheading,
 .sub-title,
 .location-title,
-.weather-card-title,
+.service-feature-title,
 .timeline-card-title,
 .timeline-main-heading {
     font-family: Arial, Helvetica, sans-serif;
@@ -47,14 +47,14 @@ h2, h3, h4, h5, h6,
 
 body {
     font-family: var(--font-body);
-    background-color: #ffffff;
+    background-color: white;
     color: var(--text-dark);
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
 }
 
 .services-page-section {
-    padding: 40px 0 80px 0;
+    padding: 40px 0 0;
 }
 
 .main-page-heading {
@@ -184,7 +184,7 @@ body {
    -------------------------------------------------------------------------- */
 .timeline-section {
     margin-bottom: 70px;
-    background: #ffffff;
+    background: #d80a0a;
     padding: 50px 30px;
     border-radius: 0px;
     border: 1px solid #f1e5d5;
@@ -487,6 +487,17 @@ body {
     user-select: none;
 }
 
+/* Preserve the carousel movement when the shared scroll-reveal class is added. */
+.coverflow-card.scroll-reveal {
+    transition: opacity 0.6s ease,
+        translate 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--scroll-reveal-delay, 0ms),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.55s ease,
+        border-color 0.55s ease,
+        background-color 0.55s ease,
+        color 0.55s ease;
+}
+
 .coverflow-card.active {
     transform: translateX(0) translateZ(80px) rotateY(0deg) scale(1.05);
     z-index: 10;
@@ -570,7 +581,7 @@ body {
 }
 
 /* Fixed All-Weather cards — no animation, movement, or shadow */
-.weather-card-horizontal {
+.service-feature-card {
     position: relative;
     min-height: 185px;
     width: 100%;
@@ -591,20 +602,20 @@ body {
 }
 
 /* Keep cards completely fixed on hover */
-.weather-card-horizontal:hover {
+.service-feature-card:hover {
     transform: none !important;
     box-shadow: none !important;
 }
 
 /* Main text area */
-.weather-card-content {
+.service-feature-content {
     width: calc(100% - 52px);
     padding-right: 4px;
     padding-top: 0px;
 }
 
 /* Card title */
-.weather-card-title {
+.service-feature-title {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     line-height: 1.25;
@@ -614,7 +625,7 @@ body {
 }
 
 /* Short description */
-.weather-card-desc {
+.service-feature-description {
     font-size: 0.88rem;
     line-height: 1.5;
     font-weight: 400;
@@ -623,7 +634,7 @@ body {
 }
 
 /* Image — top-right corner */
-.weather-card-icon-corner {
+.service-feature-image-container {
     position: absolute;
     top: 14px;
     right: 14px;
@@ -640,7 +651,7 @@ body {
     overflow: hidden;
 }
 
-.weather-card-icon-corner img {
+.service-feature-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -648,22 +659,22 @@ body {
 }
 
 /* Force all four cards into one straight horizontal line */
-.weather-cards-grid > .weather-card-horizontal:nth-child(1),
-.weather-cards-grid > .weather-card-horizontal:nth-child(2),
-.weather-cards-grid > .weather-card-horizontal:nth-child(3),
-.weather-cards-grid > .weather-card-horizontal:nth-child(4) {
+.service-feature-grid > .service-feature-card:nth-child(1),
+.service-feature-grid > .service-feature-card:nth-child(2),
+.service-feature-grid > .service-feature-card:nth-child(3),
+.service-feature-grid > .service-feature-card:nth-child(4) {
     margin-top: 0 !important;
 }
 
 /* Tablet */
 @media (max-width: 1100px) {
-    .weather-cards-grid {
+    .service-feature-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
         align-items: stretch;
     }
 
-    .weather-card-horizontal {
+    .service-feature-card {
         min-height: 175px;
         margin-top: 0 !important;
     }
@@ -671,22 +682,22 @@ body {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .weather-cards-grid {
+    .service-feature-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
 
-    .weather-card-horizontal {
+    .service-feature-card {
         min-height: 155px;
         padding: 20px 18px;
         margin-top: 0 !important;
     }
 
-    .weather-card-content {
+    .service-feature-content {
         padding-top: 46px;
     }
 
-    .weather-card-icon-corner {
+    .service-feature-image-container {
         width: 46px;
         height: 46px;
         top: 13px;
@@ -700,11 +711,11 @@ body {
    Previous-version styling — scoped ONLY to this section
    ========================================================= */
 
-.providings-section {
+.provided-services-section {
     margin-top: 50px;
 }
 
-.providings-section .providing-weather-grid {
+.provided-services-section .provided-services-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
@@ -713,7 +724,7 @@ body {
     align-items: stretch;
 }
 
-.providings-section .providing-weather-card {
+.provided-services-section .provided-service-card {
     position: relative;
     min-height: 175px;
     height: 100%;
@@ -732,18 +743,18 @@ body {
     box-sizing: border-box;
 }
 
-.providings-section .providing-weather-card:hover {
+.provided-services-section .provided-service-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
-.providings-section .providing-weather-card .weather-card-content {
+.provided-services-section .provided-service-card .service-feature-content {
     width: 100%;
     padding-top: 0;
     padding-right: 0;
 }
 
-.providings-section .providing-weather-card .weather-card-icon-corner {
+.provided-services-section .provided-service-card .service-feature-image-container {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -758,14 +769,14 @@ body {
     justify-content: center;
 }
 
-.providings-section .providing-weather-card .weather-card-icon-corner img {
+.provided-services-section .provided-service-card .service-feature-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.providings-section .providing-weather-card .weather-card-title {
+.provided-services-section .provided-service-card .service-feature-title {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     line-height: 1.35;
@@ -776,7 +787,7 @@ body {
     text-transform: uppercase;
 }
 
-.providings-section .providing-weather-card .weather-card-desc {
+.provided-services-section .provided-service-card .service-feature-description {
     font-size: 0.92rem;
     line-height: 1.65;
     font-weight: 400;
@@ -786,18 +797,18 @@ body {
 
 /* Responsive */
 @media (max-width: 992px) {
-    .providings-section .providing-weather-grid {
+    .provided-services-section .provided-services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .providings-section .providing-weather-grid {
+    .provided-services-section .provided-services-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
 
-    .providings-section .providing-weather-card {
+    .provided-services-section .provided-service-card {
         min-height: 155px;
     }
 }
@@ -810,8 +821,82 @@ body {
 .about-service-bullets li i,
 .service-arrow-points li i { flex:0 0 auto; margin-top:5px; }
 
-/* Pause the continuous AVR Services To marquee while hovering a card/image. */
-.marquee-track:has(.location-card-sharp:hover) { animation-play-state: paused; }
 
 /* Keep How It Works cards unchanged when hovered; no gold border appears. */
 .timeline-card:hover { border-color: rgba(15, 23, 42, 0.08); }
+
+.service-section-overview {
+    background-color: #efc20f;
+}
+.service-section-coverage {
+    background-color: #1073d7;
+}
+.service-section-description {
+    background-color: #5dbb27;
+}
+/* .service-section-delivery-process {
+    background-color: #a5bb27;//timeline section
+} */
+ .service-section-all-weather {
+    background-color: #27acbb;
+}
+ .service-section-provided-items {
+    background-color: #32686e;
+}
+
+/* Original subsection margins are preserved; theme bands extend across them. */
+
+/* Full-width outer band for the timeline; its existing content stays centered in the parent container. */
+.timeline-section {
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+    border-color: transparent;
+}
+
+.timeline-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset-block: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: #d80a0a;
+    border: 1px solid #f1e5d5;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+/* Extend the colored Services bands beyond the centered content container without changing layout. */
+.services-page-section .container > [class^="service-section-"] {
+    position: relative;
+    isolation: isolate;
+}
+
+.services-page-section .container > [class^="service-section-"]::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset-block: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: inherit;
+    pointer-events: none;
+}
+
+/* Give What We Provide a real full-viewport background band while keeping its
+   cards aligned to the same centered content gutters as the other sections. */
+body#avr-theme .services-page-section > .container > .service-section-provided-items {
+    width: 100vw;
+    max-width: none;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    margin-left: 0;
+    transform: translateX(-50%);
+    padding-right: max(36px, calc((100vw - 1400px) / 2 + 36px));
+    padding-left: max(36px, calc((100vw - 1400px) / 2 + 36px));
+    padding-bottom: 80px;
+}
