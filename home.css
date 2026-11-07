@@ -2205,7 +2205,7 @@ body {
     }
 }
 
-/* Mobile: fill the complete available screen while preserving the GIF ratio. */
+/* Mobile: show the complete hero GIF without cropping it. */
 @media (max-width: 768px) {
     body {
         padding-top: 72px;
@@ -2215,14 +2215,14 @@ body {
         min-height: calc(100vh - 72px);
         height: calc(100vh - 72px);
         width: 100vw;
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
     }
 
     .hero-bg-parallax {
         width: 100%;
         height: 100%;
-        background-size: cover;
+        background-size: contain;
         background-position: center center;
     }
 }
@@ -2326,6 +2326,29 @@ main > section {
 @media (prefers-reduced-motion: reduce) {
     .scroll-reveal, .reveal-on-scroll { opacity: 1 !important; translate: none !important; transition: none !important; }
     .hero-bounce-text { animation: none !important; }
+}
+
+/* Keep the complete animated hero image visible on narrow screens. */
+@media (max-width: 768px) {
+    .hero-section,
+    .hero-bg-parallax {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .hero-section {
+        min-height: calc(100svh - 72px);
+        height: calc(100svh - 72px);
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .hero-section,
+    .hero-bg-parallax {
+        background-size: contain;
+        background-position: center center;
+    }
 }
 
 main .scroll-reveal:not(.visible), main .reveal-on-scroll:not(.visible) {

@@ -599,3 +599,48 @@ body {
         font-size: 1.4rem;
     }
 }
+
+@media (max-width: 768px) {
+    .newspaper-article,
+    .newspaper-article p {
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+    .founder-block {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .founder-block .float-box-left,
+    .founder-block .float-box-right {
+        float: none;
+        position: static;
+        width: min(180px, 100%);
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .newspaper-section .borderless-img-wrap img {
+        object-fit: contain;
+    }
+
+    .founder-block .newspaper-article {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .newspaper-article h2 {
+        height: auto;
+        min-height: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .newspaper-section,
+    .founders-section {
+        overflow-x: clip;
+    }
+}

@@ -35,7 +35,7 @@
             activePage = 'testimonials';
         }
 
-        const homeUrl = prefix + 'home.html';
+        const homeUrl = prefix + 'index.html';
         const aboutUrl = prefix + 'about us/aboutus.html';
         const servicesUrl = prefix + 'Services/Services.html';
         const plansUrl = prefix + 'plans/plans.html';
@@ -122,25 +122,15 @@
             <div class="drawer-header"><span class="drawer-title">AVR DABBA</span><button type="button" class="drawer-close" id="drawer-close-button" aria-label="Close navigation menu">&times;</button></div>
             <nav aria-label="Mobile navigation links">
                 <a class="drawer-link" href="${homeUrl}">HOME</a>
-                <span class="drawer-group-title">ABOUT US</span>
-                <a class="drawer-link drawer-sub-link" href="${aboutUrl}#service-story">AVR Service Story</a>
-                <a class="drawer-link drawer-sub-link" href="${aboutUrl}#founders">Founders of AVR DABBA</a>
-                <span class="drawer-group-title">SERVICES</span>
-                <a class="drawer-link drawer-sub-link" href="${servicesUrl}#about-service">About Service</a>
-                <a class="drawer-link drawer-sub-link" href="${servicesUrl}#services-to">AVR Services To</a>
-                <a class="drawer-link drawer-sub-link" href="${servicesUrl}#what-is-our-service">What Is Our Service?</a>
-                <a class="drawer-link drawer-sub-link" href="${servicesUrl}#how-it-works">How It Works</a>
-                <a class="drawer-link drawer-sub-link" href="${servicesUrl}#all-weather-service">All-Weather Reliable Service</a>
-                <a class="drawer-link drawer-sub-link" href="${servicesUrl}#what-we-provide">What We Provide</a>
-                <span class="drawer-group-title">PLANS</span>
-                <a class="drawer-link drawer-sub-link" href="${plansUrl}#plan-prices">Plan Prices</a>
-                <a class="drawer-link drawer-sub-link" href="${plansUrl}#plan-start-dates">Plan Start Dates</a>
-                <a class="drawer-link drawer-sub-link" href="${plansUrl}#subscription-plans">Subscription Plans</a>
-                <a class="drawer-link drawer-sub-link" href="${plansUrl}#service-pamphlets">Our Service Pamphlets</a>
-                <span class="drawer-group-title">TESTIMONIALS</span>
-                <a class="drawer-link drawer-sub-link" href="${testimonialsUrl}#parent-reviews">Parent Reviews &amp; Feedback</a>
-                <a class="drawer-link drawer-sub-link" href="${testimonialsUrl}#give-feedback">Give Your Feedback</a>
+                <a class="drawer-link" href="${aboutUrl}">ABOUT US</a>
+                <a class="drawer-link" href="${servicesUrl}">SERVICES</a>
+                <a class="drawer-link" href="${plansUrl}">PLANS</a>
+                <a class="drawer-link" href="${testimonialsUrl}">TESTIMONIALS</a>
             </nav>
+            <div class="drawer-actions" aria-label="Contact options">
+                <a href="tel:9281271759" class="btn btn-outline-call"><i class="bi bi-telephone-fill" aria-hidden="true"></i> Contact us</a>
+                <a href="https://wa.me/919281271759?text=Hi%20AVR%20DABBA%2C%20I%20would%20like%20to%20book%20a%20dabba." class="btn nav-cta" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i> Book a Dabba</a>
+            </div>
         </aside>`;
 
         const menuButton = container.querySelector('#mobile-menu-button');

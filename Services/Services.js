@@ -9,8 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     const coverflowCards = document.querySelectorAll('.coverflow-card');
     const coverflowDots = document.querySelectorAll('.coverflow-dot');
+    const coverflowContainer = document.querySelector('.coverflow-carousel-container');
     let currentCoverflowIndex = 0;
     const totalCoverflow = coverflowCards.length;
+    let touchStartX = null;
+    let swipeHandled = false;
 
     function updateCoverflow() {
         coverflowCards.forEach((card, i) => {
@@ -41,10 +44,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         coverflowCards.forEach((card, i) => {
             card.addEventListener('click', () => {
+                if (swipeHandled) return;
                 currentCoverflowIndex = i;
                 updateCoverflow();
             });
         });
+
+        if (coverflowContainer) {
+            coverflowContainer.addEventListener('pointerdown', event => {
+                if (event.pointerType !== 'mouse') touchStartX = event.clientX;
+            });
+
+            coverflowContainer.addEventListener('pointerup', event => {
+                if (touchStartX === null) return;
+                const horizontalTravel = event.clientX - touchStartX;
+                touchStartX = null;
+                if (Math.abs(horizontalTravel) < 44) return;
+
+                currentCoverflowIndex = (currentCoverflowIndex + (horizontalTravel < 0 ? 1 : -1) + totalCoverflow) % totalCoverflow;
+                updateCoverflow();
+                swipeHandled = true;
+                window.setTimeout(() => { swipeHandled = false; }, 350);
+            });
+
+            coverflowContainer.addEventListener('pointercancel', () => {
+                touchStartX = null;
+            });
+        }
 
         coverflowDots.forEach((dot, i) => {
             dot.addEventListener('click', () => {

@@ -564,7 +564,8 @@ body {
 
 @media (max-width: 768px) {
     .coverflow-card {
-        width: 290px;
+        width: min(360px, calc(100vw - 40px));
+        box-sizing: border-box;
     }
     
     .coverflow-card.prev-1 {
@@ -573,6 +574,58 @@ body {
 
     .coverflow-card.next-1 {
         transform: translateX(150px) translateZ(0px) rotateY(0deg) scale(0.82);
+    }
+}
+
+@media (max-width: 600px) {
+    .coverflow-carousel-container {
+        padding: 20px 0 14px;
+        touch-action: pan-y;
+    }
+
+    .coverflow-track {
+        min-height: 380px;
+        touch-action: pan-y;
+    }
+
+    .coverflow-card {
+        width: min(360px, calc(100vw - 32px));
+    }
+
+    .coverflow-card.active {
+        transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+    }
+
+    .coverflow-card.prev-1,
+    .coverflow-card.next-1,
+    .coverflow-card.far {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(0) translateZ(-20px) rotateY(0deg) scale(.92);
+    }
+
+    .coverflow-dots {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .coverflow-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: #888292;
+        cursor: pointer;
+    }
+
+    .coverflow-dot.active {
+        background: #724E04;
+        transform: scale(1.2);
     }
 }
     width: 100%;

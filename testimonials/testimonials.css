@@ -373,3 +373,47 @@ body {
         position: static;
     }
 }
+
+@media (max-width: 600px) {
+    .testimonials-section {
+        padding: 28px 0 48px;
+    }
+
+    .testimonials-side-by-side {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .reviews-left-col,
+    .feedback-form-card,
+    .review-bar-card {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .card-bar-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-bar-meta {
+        align-items: flex-start;
+    }
+
+    .reviews-list-container {
+        gap: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .digital-rating-badge {
+        gap: 6px;
+        padding: 8px 10px;
+    }
+
+    .star-rating-input {
+        gap: 8px;
+        font-size: 1.6rem;
+    }
+}

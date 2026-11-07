@@ -676,3 +676,531 @@ body#avr-theme .testimonials-section .reviews-list-container > .review-bar-card:
     background-color: var(--avr-dark-coffee) !important;
     color: var(--avr-text-white) !important;
 }
+
+/* Responsive foundations shared by every AVR DABBA page. */
+html,
+body#avr-theme {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+body#avr-theme main,
+body#avr-theme main > section,
+body#avr-theme .container,
+body#avr-theme :where(.row, [class*="grid"], [class*="-card"], [class*="-col"]) {
+    min-width: 0;
+}
+
+body#avr-theme main img,
+body#avr-theme .main-footer img {
+    max-width: 100%;
+}
+
+body#avr-theme img[src$=".gif"],
+body#avr-theme img[src$=".GIF"] {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+body#avr-theme :where(button, a.btn, input[type="submit"]) {
+    touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+    body#avr-theme .container,
+    body#avr-theme .nav-container {
+        padding-inline: 20px;
+    }
+
+    body#avr-theme main :where(.testimonial-grid, .pricing-grid, .actions-grid, .services-grid) {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    }
+
+    body#avr-theme .mini-modal-overlay {
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+    }
+
+    body#avr-theme .mini-modal-card {
+        width: 100%;
+        max-width: 580px;
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
+        overflow-y: auto;
+        margin-block: auto;
+        padding: 22px 18px;
+    }
+
+    body#avr-theme .mini-modal-card.modal-wide {
+        max-width: 680px;
+    }
+
+    body#avr-theme .modal-body-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    body#avr-theme .plans-page-section .container > :where(
+        .plans-clean-block,
+        .subscription-plans-section,
+        .plan-start-dates-section,
+        .pamphlet-display-section-compact
+    ) {
+        padding-inline: 24px;
+    }
+
+    body#avr-theme .legal-verification-card,
+    body#avr-theme .trust-protocol-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 22px 20px;
+    }
+
+    body#avr-theme .legal-badge-right {
+        align-self: center;
+    }
+
+    body#avr-theme .reviews-header-bar,
+    body#avr-theme .card-bar-top {
+        align-items: flex-start;
+    }
+
+    body#avr-theme .card-bar-top {
+        flex-wrap: wrap;
+    }
+
+    body#avr-theme .card-bar-meta {
+        align-items: flex-start;
+    }
+
+    body#avr-theme .drawer-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: 18px;
+    }
+
+    body#avr-theme .mobile-drawer .drawer-actions > .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 48px;
+        box-sizing: border-box;
+        border-radius: 9999px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    body#avr-theme .mobile-drawer .drawer-actions .btn-outline-call {
+        color: #0D6EFD !important;
+        background: #FFFFFF !important;
+        border: 1.5px solid #0D6EFD !important;
+    }
+
+    body#avr-theme .mobile-drawer .drawer-actions .btn-outline-call:hover,
+    body#avr-theme .mobile-drawer .drawer-actions .btn-outline-call:focus-visible {
+        color: #FFFFFF !important;
+        background: #0D6EFD !important;
+    }
+
+    body#avr-theme .mobile-drawer .drawer-actions .nav-cta {
+        color: #25D366 !important;
+        background: #FFFFFF !important;
+        border: 2px solid #25D366 !important;
+    }
+
+    body#avr-theme .mobile-drawer .drawer-actions .nav-cta:hover,
+    body#avr-theme .mobile-drawer .drawer-actions .nav-cta:focus-visible {
+        color: #FFFFFF !important;
+        background: #25D366 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body#avr-theme .container,
+    body#avr-theme .nav-container {
+        padding-inline: 16px;
+    }
+
+    body#avr-theme .main-page-heading {
+        max-width: 100%;
+        font-size: clamp(1.65rem, 7vw, 2rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    body#avr-theme .section-subheading,
+    body#avr-theme .section-title {
+        overflow-wrap: anywhere;
+    }
+
+    body#avr-theme .testimonial-card,
+    body#avr-theme .feedback-form-card,
+    body#avr-theme .reviews-left-col {
+        padding: 20px 16px;
+    }
+
+    body#avr-theme .plans-page-section .container > :where(
+        .plans-clean-block,
+        .subscription-plans-section,
+        .plan-start-dates-section,
+        .pamphlet-display-section-compact
+    ) {
+        padding-inline: 16px;
+    }
+
+    body#avr-theme .mini-modal-title {
+        font-size: 1.15rem;
+    }
+
+    body#avr-theme .digital-rating-badge {
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 360px) {
+    body#avr-theme .container,
+    body#avr-theme .nav-container {
+        padding-inline: 12px;
+    }
+
+    body#avr-theme .main-page-heading {
+        font-size: 1.55rem;
+    }
+
+    body#avr-theme .mini-modal-card {
+        padding: 20px 14px;
+    }
+}
+
+/* Plans page: format each subscription option as a readable mobile card. */
+@media (max-width: 768px) {
+    body#avr-theme .plans-page-section .plans-table-header {
+        display: none;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-box-container {
+        gap: 12px;
+        border: 0;
+        overflow: visible;
+        margin-bottom: 24px;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: hidden;
+        border: 1px solid #cbd5e1;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell {
+        min-width: 0;
+        padding: 12px 8px;
+        text-align: center;
+        font-size: 0.92rem;
+        border-right: 1px solid #cbd5e1;
+        border-bottom: 1px solid #cbd5e1;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-distance-banner,
+    body#avr-theme .plans-page-section .plans-table-row > .cell-action {
+        grid-column: 1 / -1;
+        border-right: 0;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-distance-banner {
+        padding-block: 12px;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-price-box {
+        flex-direction: column;
+        gap: 7px;
+        border-right: 0;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-price-box:nth-child(2)::before {
+        content: "Monthly plan";
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-price-box:nth-child(3)::before {
+        content: "Monthly multi-box";
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-price-box::before {
+        font-size: 0.68rem;
+        font-weight: 700;
+        line-height: 1.25;
+        text-transform: uppercase;
+        letter-spacing: 0.035em;
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-price-box .price-green {
+        max-width: 100%;
+        font-size: clamp(0.85rem, 3.8vw, 1.05rem);
+    }
+
+    body#avr-theme .plans-page-section .plans-table-row > .cell-action {
+        padding: 10px 12px 12px;
+        border-bottom: 0;
+    }
+
+    body#avr-theme .plans-page-section .stepped-dates-container {
+        gap: 14px;
+        padding: 12px 0 28px;
+        margin-block: 8px;
+    }
+
+    body#avr-theme .plans-page-section .stepped-date-card {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    body#avr-theme .plans-page-section .plans-table-row > .cell {
+        padding-inline: 6px;
+    }
+
+    body#avr-theme .plans-page-section .stepped-date-card {
+        padding: 18px 16px;
+    }
+}
+
+/* Home hero: fill small viewports with the animated image and keep its overlay
+   content sized and positioned within the visible image area. */
+@media (max-width: 768px) {
+    body#avr-theme main > .hero-section {
+        width: 100%;
+        min-height: calc(100svh - 72px);
+        height: calc(100svh - 72px);
+        background-image: none !important;
+        background-color: var(--avr-deep-navy) !important;
+        overflow: hidden;
+    }
+
+    body#avr-theme .hero-bg-parallax {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-image: none !important;
+        overflow: hidden;
+    }
+
+    body#avr-theme .hero-bg-parallax::before,
+    body#avr-theme .hero-bg-parallax::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url('images/AVR_home.gif');
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+
+    body#avr-theme .hero-bg-parallax::before {
+        inset: -16px;
+        z-index: 0;
+        background-size: cover;
+        background-position: center center;
+        filter: blur(12px) brightness(0.58);
+        transform: scale(1.03);
+    }
+
+    body#avr-theme .hero-bg-parallax::after {
+        z-index: 1;
+        background-size: contain;
+        background-position: center center;
+    }
+
+    body#avr-theme .hero-exact-message {
+        top: clamp(76px, 12svh, 112px);
+        left: 50%;
+        width: min(94vw, 660px);
+        min-height: 0;
+        transform: translateX(-50%);
+    }
+
+    body#avr-theme .hero-exact-message .hero-top-trust-badge {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        font-size: clamp(0.58rem, 2.4vw, 0.82rem);
+        line-height: 1.25;
+    }
+
+    body#avr-theme .hero-exact-message .hero-headline-layout {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center !important;
+        gap: clamp(3px, 1.6vw, 10px) !important;
+        width: 100%;
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-left,
+    body#avr-theme .hero-exact-message .hero-col-right {
+        min-width: 0;
+        font-size: clamp(0.8rem, 4vw, 1.5rem) !important;
+        line-height: 1.15 !important;
+        overflow-wrap: normal;
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-left {
+        text-align: right !important;
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-right {
+        text-align: left !important;
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-center {
+        font-size: clamp(2.1rem, 10vw, 4.4rem) !important;
+        line-height: 0.95 !important;
+        letter-spacing: -1px !important;
+    }
+
+    body#avr-theme .hero-cta-centered {
+        top: 58% !important;
+        left: 50% !important;
+        width: min(calc(100% - 32px), 560px) !important;
+        max-width: min(calc(100% - 32px), 560px) !important;
+        gap: clamp(10px, 2vw, 20px) !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    body#avr-theme .hero-cta-centered .btn-hero-primary,
+    body#avr-theme .hero-cta-centered .btn-hero-secondary {
+        min-width: 0 !important;
+        min-height: 46px;
+        padding: 12px 18px;
+        font-size: clamp(0.84rem, 2.4vw, 1rem);
+    }
+
+    body#avr-theme .hero-grid {
+        display: none;
+    }
+
+    body#avr-theme .hero-container-layout {
+        height: 100%;
+        min-height: 100%;
+        padding-bottom: clamp(10px, 3svh, 24px);
+    }
+
+    body#avr-theme .hero-metrics-bottom {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
+        align-items: center;
+        gap: clamp(5px, 2vw, 14px);
+        width: 100%;
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-item {
+        min-width: 0;
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-value {
+        font-size: clamp(1rem, 4.5vw, 1.5rem);
+        line-height: 1.1;
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-label {
+        max-width: 100%;
+        font-size: clamp(0.52rem, 2.2vw, 0.72rem);
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-divider {
+        width: 1px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    body#avr-theme .hero-cta-centered {
+        top: 58% !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+    }
+
+    body#avr-theme .hero-cta-centered .btn-hero-primary,
+    body#avr-theme .hero-cta-centered .btn-hero-secondary {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        min-height: 44px;
+        padding: 9px 6px;
+        font-size: clamp(0.66rem, 3.2vw, 0.88rem);
+        gap: 5px;
+        white-space: nowrap;
+    }
+
+    body#avr-theme .hero-cta-centered .btn-hero-primary i,
+    body#avr-theme .hero-cta-centered .btn-hero-secondary i {
+        margin-right: 0 !important;
+    }
+
+    body#avr-theme .main-header .nav-container {
+        gap: 8px;
+        min-width: 0;
+    }
+
+    body#avr-theme .main-header .brand-logo.logo-highlighted {
+        flex: 1 1 auto;
+        min-width: 0;
+        gap: clamp(6px, 2vw, 10px);
+    }
+
+    body#avr-theme .main-header .logo-icon-wrap {
+        flex: 0 0 auto;
+        width: clamp(52px, 18vw, 72px);
+        height: clamp(42px, 15vw, 58px);
+    }
+
+    body#avr-theme .main-header .brand-text {
+        display: flex !important;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    body#avr-theme .main-header .brand-name {
+        font-size: clamp(0.94rem, 4.4vw, 1.25rem) !important;
+        white-space: nowrap;
+    }
+
+    body#avr-theme .main-header .brand-tagline {
+        font-size: clamp(0.46rem, 2.2vw, 0.64rem) !important;
+        line-height: 1.15;
+        white-space: normal;
+    }
+
+    body#avr-theme .main-header .nav-actions {
+        flex: 0 0 auto;
+        gap: 0;
+        margin-left: auto;
+    }
+
+    body#avr-theme .main-header .mobile-toggle {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Keep the price and Select Plan cells on the same surface; the button keeps
+   its own green fill. */
+body#avr-theme .plans-page-section .plans-table-row > .cell-price-box,
+body#avr-theme .plans-page-section .plans-table-row > .cell-action {
+    background-color: var(--avr-light-blue) !important;
+    background-image: none !important;
+    color: var(--avr-text-black) !important;
+}

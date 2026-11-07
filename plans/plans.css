@@ -796,8 +796,8 @@ body#avr-theme .plans-page-section .container > :where(
 @media (max-width: 1024px) {
     .stepped-dates-container {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 320px));
-        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        justify-content: stretch;
         gap: 20px;
         min-height: 0;
     }
