@@ -59,8 +59,10 @@
                         </div>
 
                         <!-- Bar Rectangle Type Reviews Container -->
-                        <div class="reviews-list-container" id="reviews-container">
-                            <!-- Dynamic Review Bar Cards Loaded via testimonials.js -->
+                        <div class="reviews-list-container" id="reviews-container" aria-busy="true" aria-live="polite">
+                            <div class="site-skeleton site-review-skeleton" aria-hidden="true"></div>
+                            <div class="site-skeleton site-review-skeleton" aria-hidden="true"></div>
+                            <div class="site-skeleton site-review-skeleton" aria-hidden="true"></div>
                         </div>
                     </div>
 
@@ -175,6 +177,7 @@
 
     <!-- Shared Navigation Component Script -->
     <script src="../navbar.js"></script>
+    <script src="../site-ux.js"></script>
     <!-- Main JavaScript -->
     <script src="testimonials.js"></script>
     <script src="../scroll-reveal.js"></script>

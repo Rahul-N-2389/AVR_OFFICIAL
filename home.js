@@ -54,11 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadTopHomeTestimonials(container) {
     let defaultReviews = [];
+    let failedToLoad = false;
     try {
-        const response = await fetch('testimonials/testimonials.json');
-        if (response.ok) defaultReviews = await response.json();
+        defaultReviews = window.AvrSiteUX
+            ? await window.AvrSiteUX.fetchJSON('testimonials/testimonials.json')
+            : await fetch('testimonials/testimonials.json').then(response => {
+                if (!response.ok) throw new Error('Request failed');
+                return response.json();
+            });
+        if (!Array.isArray(defaultReviews)) defaultReviews = [];
     } catch {
-        // Keep the existing home page cards as a fallback if the review file is unavailable.
+        failedToLoad = true;
     }
 
     let submittedReviews = [];
@@ -78,7 +84,12 @@ async function loadTopHomeTestimonials(container) {
         })
         .slice(0, 3);
 
-    if (!topReviews.length) return;
+    if (!topReviews.length) {
+        if (failedToLoad && window.AvrSiteUX) {
+            window.AvrSiteUX.showRetry(container, 'Parent reviews could not be refreshed. Please try again.', () => loadTopHomeTestimonials(container), { append: true });
+        }
+        return;
+    }
 
     const cards = topReviews.map(review => {
         const card = document.createElement('div');
@@ -115,4 +126,7 @@ async function loadTopHomeTestimonials(container) {
     });
 
     container.replaceChildren(...cards);
+    if (failedToLoad && window.AvrSiteUX) {
+        window.AvrSiteUX.showRetry(container, 'Showing saved parent reviews. Published reviews could not be loaded.', () => loadTopHomeTestimonials(container), { append: true });
+    }
 }

@@ -1196,6 +1196,184 @@ body#avr-theme :where(button, a.btn, input[type="submit"]) {
     }
 }
 
+/* Phone layout from the mobile reference: the GIF defines the hero height,
+   and all hero content stays inside its full-width image. */
+@media (max-width: 600px) {
+    body#avr-theme main > .hero-section {
+        display: block;
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: 1667 / 720;
+        padding: 0;
+        background-image: url('images/AVR_home.gif') !important;
+        background-position: center center !important;
+        background-size: 100% 100% !important;
+        background-repeat: no-repeat !important;
+    }
+
+    body#avr-theme .hero-bg-parallax {
+        display: none;
+    }
+
+    body#avr-theme .hero-container-layout {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    body#avr-theme .hero-exact-message {
+        top: 4%;
+        left: 50%;
+        width: 94%;
+        max-width: none;
+    }
+
+    body#avr-theme .hero-exact-message .hero-top-trust-badge {
+        max-width: 100%;
+        gap: 4px;
+        margin-bottom: 1px;
+        padding: 3px 8px;
+        font-size: clamp(0.46rem, 2vw, 0.7rem);
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    body#avr-theme .hero-exact-message .hero-top-trust-badge .badge-icon i {
+        margin-right: 2px !important;
+    }
+
+    body#avr-theme .hero-exact-message .hero-headline-layout {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: clamp(2px, 1vw, 6px) !important;
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-left,
+    body#avr-theme .hero-exact-message .hero-col-right {
+        font-size: clamp(0.55rem, 3.2vw, 0.95rem) !important;
+        line-height: 1.05 !important;
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-center {
+        font-size: clamp(1.2rem, 8vw, 2.2rem) !important;
+        line-height: 0.95 !important;
+        letter-spacing: -0.04em !important;
+    }
+
+    body#avr-theme .hero-bounce-text {
+        animation-name: heroBallDropBounceMobile;
+    }
+
+    body#avr-theme .hero-cta-centered {
+        top: 55% !important;
+        left: 50% !important;
+        width: 92% !important;
+        max-width: 92% !important;
+        flex-direction: row !important;
+        gap: 7px !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    body#avr-theme .hero-cta-centered .btn-hero-primary,
+    body#avr-theme .hero-cta-centered .btn-hero-secondary {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        min-height: clamp(24px, 7.2vw, 32px);
+        padding: 4px clamp(4px, 1.7vw, 8px);
+        gap: 4px;
+        font-size: clamp(0.52rem, 2.8vw, 0.78rem);
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    body#avr-theme .hero-cta-centered .btn-hero-primary i,
+    body#avr-theme .hero-cta-centered .btn-hero-secondary i {
+        margin-right: 0 !important;
+        font-size: 0.9em;
+    }
+
+    body#avr-theme .hero-grid {
+        display: none;
+    }
+
+    body#avr-theme .hero-metrics-bottom {
+        position: absolute;
+        left: 50%;
+        bottom: 3%;
+        width: 90%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
+        align-items: center;
+        gap: clamp(3px, 1.5vw, 8px);
+        transform: translateX(-50%);
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-item {
+        min-width: 0;
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-value {
+        font-size: clamp(0.72rem, 3.6vw, 1rem);
+        line-height: 1.05;
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-label {
+        max-width: 100%;
+        font-size: clamp(0.38rem, 1.8vw, 0.55rem);
+        line-height: 1.05;
+        overflow-wrap: anywhere;
+    }
+
+    body#avr-theme .hero-metrics-bottom .metric-divider {
+        width: 1px;
+        height: clamp(12px, 5vw, 22px);
+    }
+
+    body#avr-theme main > #about {
+        margin: 0;
+        border-radius: 0;
+        padding: clamp(18px, 5vw, 28px) 0 40px;
+    }
+
+    body#avr-theme main > #about .section-header {
+        margin-bottom: 22px;
+    }
+
+    body#avr-theme main > #about .section-subtitle {
+        max-width: 100%;
+        justify-content: center;
+        padding: 5px 10px;
+        font-size: clamp(0.66rem, 3.2vw, 0.82rem);
+        line-height: 1.25;
+    }
+
+    body#avr-theme main > #about .section-title {
+        font-size: clamp(1.2rem, 6vw, 1.7rem);
+        line-height: 1.2;
+    }
+}
+
+@keyframes heroBallDropBounceMobile {
+    0% { transform: translateY(-36px); animation-timing-function: cubic-bezier(.32, 0, .72, .34); }
+    42% { transform: translateY(0); animation-timing-function: cubic-bezier(.22, .72, .34, 1); }
+    57% { transform: translateY(-14px); animation-timing-function: cubic-bezier(.58, 0, .84, .42); }
+    70% { transform: translateY(0); animation-timing-function: cubic-bezier(.22, .72, .34, 1); }
+    80% { transform: translateY(-6px); animation-timing-function: cubic-bezier(.58, 0, .84, .42); }
+    89% { transform: translateY(0); }
+    95% { transform: translateY(-2px); }
+    100% { transform: translateY(0); }
+}
+
 /* Keep the price and Select Plan cells on the same surface; the button keeps
    its own green fill. */
 body#avr-theme .plans-page-section .plans-table-row > .cell-price-box,
@@ -1203,4 +1381,290 @@ body#avr-theme .plans-page-section .plans-table-row > .cell-action {
     background-color: var(--avr-light-blue) !important;
     background-image: none !important;
     color: var(--avr-text-black) !important;
+}
+
+/* Cross-device layout refinements shared by every page. */
+html {
+    scroll-padding-top: 82px;
+}
+
+body#avr-theme {
+    width: 100%;
+    min-width: 0;
+}
+
+body#avr-theme :where(main, main > section, .container, .nav-container, .footer-grid, [class*="grid"], [class*="-col"]) {
+    min-width: 0;
+}
+
+body#avr-theme main :where(img, video, iframe) {
+    max-width: 100%;
+}
+
+body#avr-theme main :where(h1, h2, h3, h4, h5, h6, p, li, a, button) {
+    overflow-wrap: anywhere;
+}
+
+body#avr-theme main > .hero-section,
+body#avr-theme .hero-bg-parallax {
+    width: 100%;
+    max-width: 100%;
+}
+
+body#avr-theme main .main-page-heading {
+    max-width: 100%;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 769px) and (max-width: 1160px) {
+    body#avr-theme .hero-exact-message {
+        width: min(92vw, 760px);
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-left,
+    body#avr-theme .hero-exact-message .hero-col-right {
+        font-size: clamp(1.25rem, 3.2vw, 2.2rem) !important;
+    }
+
+    body#avr-theme .hero-exact-message .hero-col-center {
+        font-size: clamp(3rem, 7vw, 5rem) !important;
+    }
+}
+
+@media (min-width: 769px) {
+    body#avr-theme .hero-exact-message {
+        width: min(92vw, 760px);
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 72px;
+    }
+
+    body#avr-theme .container,
+    body#avr-theme .nav-container {
+        padding-inline: clamp(12px, 4vw, 24px);
+    }
+
+    body#avr-theme main .section {
+        padding-block: clamp(40px, 8vw, 64px);
+    }
+
+    body#avr-theme main .main-page-heading {
+        font-size: clamp(1.6rem, 6.8vw, 2.35rem);
+    }
+
+    body#avr-theme main .section-subheading,
+    body#avr-theme main .section-title {
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+    }
+
+    body#avr-theme :where(button, a.btn, input[type="submit"], .btn-submit-feedback) {
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 600px) {
+    body#avr-theme .mobile-drawer {
+        box-sizing: border-box;
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
+        padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+        overscroll-behavior: contain;
+    }
+
+    body#avr-theme .mobile-drawer .drawer-link {
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        padding-block: 12px;
+    }
+
+    body#avr-theme .service-section-provided-items {
+        padding-inline: 16px;
+    }
+}
+
+@media (max-width: 780px) {
+    body#avr-theme .floating-btn-group {
+        right: 16px;
+        bottom: calc(90px + env(safe-area-inset-bottom));
+    }
+}
+
+/* Shared non-blocking loading, offline, form, and failed-image states. */
+.site-ux-loading-line {
+    position: fixed;
+    top: 82px;
+    left: 0;
+    z-index: 1300;
+    width: 100%;
+    height: 3px;
+    overflow: hidden;
+    background: rgba(44, 128, 136, 0.16);
+    pointer-events: none;
+}
+
+.site-ux-loading-line[hidden],
+.site-connectivity-notice[hidden] {
+    display: none;
+}
+
+.site-ux-loading-line::after {
+    content: "";
+    display: block;
+    width: 36%;
+    height: 100%;
+    background: var(--avr-teal, #2C8088);
+    animation: siteLoadingSweep 1.1s ease-in-out infinite;
+}
+
+@keyframes siteLoadingSweep {
+    from { transform: translateX(-110%); }
+    to { transform: translateX(300%); }
+}
+
+.site-connectivity-notice {
+    position: fixed;
+    top: calc(94px + env(safe-area-inset-top));
+    left: 50%;
+    z-index: 1400;
+    width: min(480px, calc(100vw - 24px));
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: var(--avr-deep-navy, #07033D);
+    color: #FFFFFF;
+    font: 600 0.88rem/1.4 Arial, Helvetica, sans-serif;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+    transform: translateX(-50%);
+}
+
+.site-connectivity-notice.is-offline {
+    background: var(--avr-rich-mahogany, #3E0808);
+}
+
+.site-inline-message {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(7, 3, 61, 0.18);
+    background: rgba(180, 208, 214, 0.72);
+    color: #000000;
+    text-align: center;
+}
+
+.site-inline-message p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.site-retry-button {
+    min-height: 40px;
+    padding: 8px 16px;
+    border: 1px solid var(--avr-deep-navy, #07033D);
+    background: var(--avr-deep-navy, #07033D);
+    color: #FFFFFF;
+    font: 700 0.9rem/1.2 Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.site-retry-button:hover,
+.site-retry-button:focus-visible {
+    background: #1A2A5E;
+    border-color: #1A2A5E;
+}
+
+.site-retry-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.site-skeleton {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(100deg, #d9e2e5 25%, #edf1f2 42%, #d9e2e5 60%);
+    background-size: 220% 100%;
+    animation: siteSkeletonShimmer 1.35s linear infinite;
+}
+
+.site-review-skeleton {
+    width: 100%;
+    min-height: 118px;
+    margin-bottom: 12px;
+}
+
+@keyframes siteSkeletonShimmer {
+    to { background-position-x: -220%; }
+}
+
+body#avr-theme img.site-image-loading {
+    background: linear-gradient(100deg, #d9e2e5 25%, #edf1f2 42%, #d9e2e5 60%) !important;
+    background-size: 220% 100% !important;
+    animation: siteSkeletonShimmer 1.35s linear infinite;
+}
+
+.site-image-fallback {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 120px;
+    padding: 14px;
+    background: #B4D0D6;
+    color: #000000;
+    font: 600 0.85rem/1.4 Arial, Helvetica, sans-serif;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.site-form-status {
+    min-height: 1.4em;
+    margin: 12px 0 0;
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.site-form-status:empty {
+    display: none;
+}
+
+.site-form-status.is-error { color: #3E0808; }
+.site-form-status.is-success { color: #04221D; }
+
+body#avr-theme .btn-submit-feedback:disabled {
+    opacity: 0.72;
+    cursor: wait;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .site-ux-loading-line { top: 72px; }
+    .site-connectivity-notice { top: calc(82px + env(safe-area-inset-top)); }
+
+    body#avr-theme main :where(input, textarea, select) {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .site-review-skeleton { min-height: 104px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-ux-loading-line::after,
+    .site-skeleton,
+    body#avr-theme img.site-image-loading {
+        animation: none !important;
+    }
 }

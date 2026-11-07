@@ -1,282 +1,243 @@
 /**
- * AVR DABBA - Testimonials JavaScript (testimonials.js)
- * Controls side-by-side reviews & feedback form, 120-character review truncation with Read More toggle,
- * dynamic average digital rating out of 5 calculation, and JSON/LocalStorage persistence.
+ * Testimonials page: review loading, rendering, rating and local feedback.
+ * Reviews are read from the static JSON file and browser storage; no backend is required.
  */
-
 document.addEventListener('DOMContentLoaded', () => {
     const reviewsContainer = document.getElementById('reviews-container');
     const feedbackForm = document.getElementById('feedback-form');
     const starContainer = document.getElementById('star-rating-input');
     const ratingValueInput = document.getElementById('rating-value');
+    const ux = window.AvrSiteUX;
     let currentRating = 0;
+    let defaultReviews = [];
+    let defaultsLoaded = false;
+    let isSubmitting = false;
 
-    // ----------------------------------------------------------------------
-    // 1. Interactive 5-Star Rating Control
-    // ----------------------------------------------------------------------
-    if (starContainer) {
-        const ratingStars = starContainer.querySelectorAll('.star-icon');
-
-        function updateStars(rating) {
-            ratingStars.forEach((star, starIndex) => {
-                if (starIndex < rating) {
-                    star.classList.remove('bi-star');
-                    star.classList.add('bi-star-fill', 'active');
-                } else {
-                    star.classList.remove('bi-star-fill', 'active');
-                    star.classList.add('bi-star');
-                }
-            });
+    function readLocalReviews() {
+        try {
+            const stored = localStorage.getItem('user_testimonials');
+            const parsed = stored ? JSON.parse(stored) : [];
+            return Array.isArray(parsed) ? parsed.filter(review => review && typeof review === 'object') : [];
+        } catch {
+            return [];
         }
-
-        updateStars(0);
-
-        ratingStars.forEach(star => {
-            star.addEventListener('mouseenter', () => {
-                const hoverRating = parseInt(star.getAttribute('data-value'));
-                updateStars(hoverRating);
-            });
-
-            star.addEventListener('click', () => {
-                currentRating = parseInt(star.getAttribute('data-value'));
-                if (ratingValueInput) ratingValueInput.value = currentRating;
-                updateStars(currentRating);
-            });
-        });
-
-        starContainer.addEventListener('mouseleave', () => {
-            updateStars(currentRating);
-        });
     }
 
-    // ----------------------------------------------------------------------
-    // 2. Render Review Bar Card with 120-Char Truncation
-    // ----------------------------------------------------------------------
+    function escapeHTML(value) {
+        return String(value || '').replace(/[&<>\'"]/g, character => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+        }[character]));
+    }
+
     function renderReviewCard(review) {
         const card = document.createElement('div');
         card.className = 'review-bar-card reveal-on-scroll';
-
-        let starsHTML = '';
-        for (let starNumber = 1; starNumber <= 5; starNumber++) {
-            if (starNumber <= review.rating) {
-                starsHTML += '<i class="bi bi-star-fill me-1"></i>';
-            } else {
-                starsHTML += '<i class="bi bi-star me-1"></i>';
-            }
-        }
-
-        const formattedReviewDate = review.date ? new Date(review.date).toLocaleDateString('en-IN', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-        }) : 'Recently';
-
-        const fullText = review.feedback || '';
-        const maximumReviewLength = 120;
-        const needsTruncation = fullText.length > maximumReviewLength;
-        const truncatedText = needsTruncation ? fullText.substring(0, maximumReviewLength) + '...' : fullText;
+        const rating = Math.max(0, Math.min(5, Math.floor(Number(review.rating) || 0)));
+        const starsHTML = Array.from({ length: 5 }, (_, index) =>
+            `<i class="bi ${index < rating ? 'bi-star-fill' : 'bi-star'} me-1" aria-hidden="true"></i>`
+        ).join('');
+        const formattedDate = review.date
+            ? new Date(review.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' })
+            : 'Recently';
+        const fullText = String(review.feedback || '');
+        const truncatedText = fullText.length > 120 ? `${fullText.substring(0, 120)}...` : fullText;
 
         card.innerHTML = `
             <div class="card-bar-top">
                 <div class="card-bar-author">
-                    <span class="author-name">${escapeHTML(review.name)}</span>
+                    <span class="author-name">${escapeHTML(review.name || 'AVR DABBA Parent')}</span>
                     <span class="author-role">${escapeHTML(review.role || 'Valued Parent')}</span>
                 </div>
                 <div class="card-bar-meta">
-                    <div class="star-rating-display">${starsHTML}</div>
-                    <span class="author-date">${formattedReviewDate}</span>
+                    <div class="star-rating-display" aria-label="${rating} out of 5 stars">${starsHTML}</div>
+                    <span class="author-date">${escapeHTML(formattedDate)}</span>
                 </div>
             </div>
             <div class="card-bar-body">
-                <p class="review-text" data-full="${escapeHTML(fullText)}" data-truncated="${escapeHTML(truncatedText)}">&ldquo;${escapeHTML(truncatedText)}&rdquo;</p>
-                ${needsTruncation ? '<button type="button" class="btn-toggle-more">Read More <i class="bi bi-chevron-down"></i></button>' : ''}
-            </div>
-        `;
+                <p class="review-text">&ldquo;${escapeHTML(truncatedText)}&rdquo;</p>
+                ${fullText.length > 120 ? '<button type="button" class="btn-toggle-more" aria-expanded="false">Read More <i class="bi bi-chevron-down" aria-hidden="true"></i></button>' : ''}
+            </div>`;
 
-        if (needsTruncation) {
-            const toggleButton = card.querySelector('.btn-toggle-more');
-            const reviewText = card.querySelector('.review-text');
-            let isExpanded = false;
-
-            toggleButton.addEventListener('click', () => {
-                isExpanded = !isExpanded;
-                if (isExpanded) {
-                    reviewText.innerHTML = `&ldquo;${escapeHTML(fullText)}&rdquo;`;
-                    toggleButton.innerHTML = 'Show Less <i class="bi bi-chevron-up"></i>';
-                } else {
-                    reviewText.innerHTML = `&ldquo;${escapeHTML(truncatedText)}&rdquo;`;
-                    toggleButton.innerHTML = 'Read More <i class="bi bi-chevron-down"></i>';
-                }
+        if (fullText.length > 120) {
+            const toggle = card.querySelector('.btn-toggle-more');
+            const text = card.querySelector('.review-text');
+            toggle.addEventListener('click', () => {
+                const expanded = toggle.getAttribute('aria-expanded') !== 'true';
+                toggle.setAttribute('aria-expanded', String(expanded));
+                text.innerHTML = `&ldquo;${escapeHTML(expanded ? fullText : truncatedText)}&rdquo;`;
+                toggle.innerHTML = expanded
+                    ? 'Show Less <i class="bi bi-chevron-up" aria-hidden="true"></i>'
+                    : 'Read More <i class="bi bi-chevron-down" aria-hidden="true"></i>';
             });
         }
-
         return card;
     }
 
-    function escapeHTML(text) {
-        if (!text) return '';
-        return text.replace(/[&<>'"]/g,
-            character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character] || character)
-        );
-    }
-
-    // ----------------------------------------------------------------------
-    // 3. Update Digital Average Rating Badge
-    // ----------------------------------------------------------------------
-    function updateDigitalRatingBadge(allReviews) {
-        const averageRatingValueElement = document.getElementById('average-rating-value');
-        const averageRatingStarsElement = document.getElementById('average-rating-stars');
-        const reviewCountLabelElement = document.getElementById('reviews-count-label');
-
-        if (!allReviews || allReviews.length === 0) {
-            if (averageRatingValueElement) averageRatingValueElement.textContent = '5.0';
-            if (reviewCountLabelElement) reviewCountLabelElement.textContent = '(0 reviews)';
+    function updateDigitalRatingBadge(reviews) {
+        const value = document.getElementById('average-rating-value');
+        const stars = document.getElementById('average-rating-stars');
+        const count = document.getElementById('reviews-count-label');
+        if (!reviews.length) {
+            if (value) value.textContent = '5.0';
+            if (count) count.textContent = '(0 reviews)';
             return;
         }
-
-        const totalRating = allReviews.reduce((ratingSum, review) => ratingSum + (parseFloat(review.rating) || 5), 0);
-        const averageRating = (totalRating / allReviews.length).toFixed(1);
-
-        if (averageRatingValueElement) averageRatingValueElement.textContent = averageRating;
-        if (reviewCountLabelElement) reviewCountLabelElement.textContent = `(${allReviews.length} reviews)`;
-
-        if (averageRatingStarsElement) {
-            let starsHTML = '';
-            const roundedAverageRating = Math.round(parseFloat(averageRating));
-            for (let starNumber = 1; starNumber <= 5; starNumber++) {
-                if (starNumber <= roundedAverageRating) {
-                    starsHTML += '<i class="bi bi-star-fill"></i>';
-                } else {
-                    starsHTML += '<i class="bi bi-star"></i>';
-                }
-            }
-            averageRatingStarsElement.innerHTML = starsHTML;
-        }
+        const average = reviews.reduce((sum, review) => sum + (Number(review.rating) || 0), 0) / reviews.length;
+        const rounded = Math.round(average);
+        if (value) value.textContent = average.toFixed(1);
+        if (count) count.textContent = `(${reviews.length} reviews)`;
+        if (stars) stars.innerHTML = Array.from({ length: 5 }, (_, index) =>
+            `<i class="bi ${index < rounded ? 'bi-star-fill' : 'bi-star'}" aria-hidden="true"></i>`
+        ).join('');
     }
 
-    // ----------------------------------------------------------------------
-    // 4. Load & Render Testimonials from JSON & LocalStorage
-    // ----------------------------------------------------------------------
-    async function loadTestimonials() {
-        let defaultReviews = [];
-        try {
-            const response = await fetch('testimonials.json');
-            if (response.ok) {
-                defaultReviews = await response.json();
-            }
-        } catch (error) {
-            console.error('Failed to load testimonials.', error);
+    function initScrollReveal() {
+        const elements = document.querySelectorAll('.reveal-on-scroll:not(.visible)');
+        if (!('IntersectionObserver' in window)) {
+            elements.forEach(element => element.classList.add('visible'));
+            return;
         }
-
-        let localReviews = [];
-        try {
-            const stored = localStorage.getItem('user_testimonials');
-            if (stored) {
-                localReviews = JSON.parse(stored);
-            }
-        } catch (error) {
-            console.error('Failed to read saved testimonials.', error);
-        }
-
-        const allReviews = [...localReviews, ...defaultReviews];
-
-        if (reviewsContainer) {
-            reviewsContainer.innerHTML = '';
-            allReviews.forEach(review => {
-                const card = renderReviewCard(review);
-                reviewsContainer.appendChild(card);
+        const observer = new IntersectionObserver((entries, activeObserver) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    activeObserver.unobserve(entry.target);
+                }
             });
+        }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+        elements.forEach(element => observer.observe(element));
+    }
+
+    function renderReviews({ showError = false } = {}) {
+        const localReviews = readLocalReviews();
+        const allReviews = [...localReviews, ...defaultReviews].filter(review => Number(review.rating) >= 1);
+        if (reviewsContainer) {
+            const cards = allReviews.map(renderReviewCard);
+            reviewsContainer.replaceChildren(...cards);
+            reviewsContainer.setAttribute('aria-busy', 'false');
+            if (showError && ux) {
+                ux.showRetry(reviewsContainer,
+                    allReviews.length
+                        ? 'Some published reviews could not be loaded. Showing saved reviews for now.'
+                        : 'Reviews could not be loaded right now. Please try again.',
+                    () => loadTestimonials({ retry: true }), { append: true });
+            }
             initScrollReveal();
         }
-
         updateDigitalRatingBadge(allReviews);
     }
 
-    // ----------------------------------------------------------------------
-    // 5. Dynamic Form Submission (Add Review & Save to LocalStorage)
-    // ----------------------------------------------------------------------
-    if (feedbackForm) {
-        feedbackForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            if (currentRating === 0) {
-                alert('Please select a star rating (1 to 5 stars) before submitting your review.');
-                return;
-            }
-
-            const nameInput = document.getElementById('user-name').value.trim();
-            const roleInput = document.getElementById('user-role').value.trim();
-            const feedbackInput = document.getElementById('user-feedback').value.trim();
-
-            if (!nameInput || !feedbackInput) return;
-
-            const newReview = {
-                id: Date.now(),
-                name: nameInput,
-                role: roleInput || 'Valued Parent',
-                rating: currentRating,
-                feedback: feedbackInput,
-                date: new Date().toISOString().split('T')[0],
-                verified: true
-            };
-
-            let localReviews = [];
-            try {
-                const stored = localStorage.getItem('user_testimonials');
-                if (stored) localReviews = JSON.parse(stored);
-            } catch (error) {
-                console.error('Failed to read saved testimonials before submission.', error);
-            }
-
-            localReviews.unshift(newReview);
-            localStorage.setItem('user_testimonials', JSON.stringify(localReviews));
-
-            // Reload all reviews to update overall digital rating correctly
-            await loadTestimonials();
-
-            // Reset form
-            feedbackForm.reset();
-            currentRating = 0;
-            if (ratingValueInput) ratingValueInput.value = 0;
-            if (starContainer) {
-                const stars = starContainer.querySelectorAll('.star-icon');
-                stars.forEach(star => {
-                    star.classList.remove('bi-star-fill', 'active');
-                    star.classList.add('bi-star');
+    async function loadTestimonials({ retry = false } = {}) {
+        if (!reviewsContainer) return;
+        if (!retry && !defaultsLoaded && !readLocalReviews().length && ux) {
+            ux.showSkeletons(reviewsContainer, { count: 3, type: 'review' });
+        }
+        try {
+            defaultReviews = ux
+                ? await ux.fetchJSON('testimonials.json')
+                : await fetch('testimonials.json').then(response => {
+                    if (!response.ok) throw new Error('Request failed');
+                    return response.json();
                 });
-            }
-
-            reviewsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            alert('Thank you! Your review has been added and saved.');
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // 6. Scroll Reveal Observer
-    // ----------------------------------------------------------------------
-    function initScrollReveal() {
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
-
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -20px 0px'
-            });
-
-            revealElements.forEach(element => observer.observe(element));
-        } else {
-            revealElements.forEach(element => element.classList.add('visible'));
+            if (!Array.isArray(defaultReviews)) defaultReviews = [];
+            defaultsLoaded = true;
+            renderReviews();
+        } catch {
+            renderReviews({ showError: true });
         }
     }
 
-    // Initialize Page
-    loadTestimonials();
+    if (starContainer) {
+        const stars = [...starContainer.querySelectorAll('.star-icon')];
+        const paintStars = rating => stars.forEach((star, index) => {
+            const active = index < rating;
+            star.classList.toggle('bi-star-fill', active);
+            star.classList.toggle('active', active);
+            star.classList.toggle('bi-star', !active);
+        });
+        paintStars(0);
+        stars.forEach((star, index) => {
+            star.setAttribute('role', 'button');
+            star.setAttribute('tabindex', '0');
+            star.setAttribute('aria-label', `${index + 1} star${index ? 's' : ''}`);
+            const select = () => {
+                currentRating = index + 1;
+                if (ratingValueInput) ratingValueInput.value = String(currentRating);
+                paintStars(currentRating);
+            };
+            star.addEventListener('mouseenter', () => paintStars(index + 1));
+            star.addEventListener('click', select);
+            star.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    select();
+                }
+            });
+        });
+        starContainer.addEventListener('mouseleave', () => paintStars(currentRating));
+        starContainer.addEventListener('focusout', () => paintStars(currentRating));
+    }
 
+    if (feedbackForm) {
+        const status = ux ? ux.createStatus(feedbackForm, 'site-form-status') : null;
+        const submitButton = feedbackForm.querySelector('[type="submit"]');
+        const announce = (message, kind) => {
+            if (!status) return;
+            status.textContent = message;
+            status.classList.remove('is-error', 'is-success');
+            if (kind) status.classList.add(`is-${kind}`);
+        };
+
+        feedbackForm.addEventListener('submit', async event => {
+            event.preventDefault();
+            if (isSubmitting) return;
+            if (!currentRating) {
+                announce('Please select a star rating (1 to 5 stars) before submitting your review.', 'error');
+                starContainer?.querySelector('.star-icon')?.focus();
+                return;
+            }
+            const name = document.getElementById('user-name')?.value.trim() || '';
+            const role = document.getElementById('user-role')?.value.trim() || '';
+            const feedback = document.getElementById('user-feedback')?.value.trim() || '';
+            if (!name || !feedback) {
+                announce('Please enter your name and review before submitting.', 'error');
+                return;
+            }
+
+            const review = {
+                id: Date.now(), name, role: role || 'Valued Parent', rating: currentRating,
+                feedback, date: new Date().toISOString().slice(0, 10), verified: true
+            };
+            isSubmitting = true;
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.setAttribute('aria-busy', 'true');
+            }
+            announce('Saving your review…', '');
+            try {
+                const updated = [review, ...readLocalReviews()];
+                localStorage.setItem('user_testimonials', JSON.stringify(updated));
+                announce('Thank you! Your review has been saved on this device.', 'success');
+                feedbackForm.reset();
+                currentRating = 0;
+                if (ratingValueInput) ratingValueInput.value = '0';
+                starContainer?.querySelectorAll('.star-icon').forEach(star => {
+                    star.classList.remove('bi-star-fill', 'active');
+                    star.classList.add('bi-star');
+                });
+                renderReviews({ showError: !defaultsLoaded });
+                reviewsContainer?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } catch {
+                announce('Your review could not be saved in this browser. Please check available storage and try again.', 'error');
+            } finally {
+                isSubmitting = false;
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.removeAttribute('aria-busy');
+                }
+            }
+        });
+    }
+
+    loadTestimonials();
 });
